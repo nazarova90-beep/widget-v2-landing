@@ -111,6 +111,13 @@
       }
     }
 
+    @media (min-width: 981px) and (prefers-reduced-motion: reduce) {
+      .goal-center.reveal,
+      .goal-center.reveal.is-in {
+        transform: translate(-50%, -50%);
+      }
+    }
+
     img {
       display: block;
       max-width: 100%;
@@ -580,6 +587,17 @@
       text-align: center;
       transform: translate(-50%, -50%);
       z-index: 3;
+    }
+
+    /* Keep the oval centered: reveal animation also uses transform. */
+    @media (min-width: 981px) {
+      .goal-center.reveal {
+        transform: translate(-50%, calc(-50% + 24px));
+      }
+
+      .goal-center.reveal.is-in {
+        transform: translate(-50%, -50%);
+      }
     }
 
     .goal-center h3 {
@@ -1572,6 +1590,9 @@
   <noscript>
     <style>
       .reveal { opacity: 1; transform: none; }
+      @media (min-width: 981px) {
+        .goal-center.reveal { transform: translate(-50%, -50%); }
+      }
     </style>
   </noscript>
   <div class="page">
