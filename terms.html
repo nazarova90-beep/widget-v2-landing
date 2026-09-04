@@ -16,11 +16,13 @@
       --brand-soft: #e7e2da;
       --text: #1c1917;
       --muted: #57534e;
+      --muted-light: #78716c;
       --line: #d0c6b8;
       --primary: #44403c;
       --primary-hover: #292524;
       --accent: #917661;
       --accent-text: #fdfcfc;
+      --amber: #e89b28;
       --card-bg: rgba(253, 252, 252, 0.88);
       --card-shadow: 0 18px 44px rgba(28, 27, 26, 0.07), 0 2px 10px rgba(208, 198, 184, 0.18);
       --max: 1200px;
@@ -46,6 +48,210 @@
       color: var(--text);
       font-family: "Inter", "Helvetica Neue", Helvetica, Arial, sans-serif;
       line-height: 1.5;
+    }
+
+    body.is-loading {
+      overflow: hidden;
+    }
+
+    .page-loader {
+      position: fixed;
+      inset: 0;
+      z-index: 1000;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 36px;
+      background: var(--bg);
+      transition: opacity 0.7s ease, visibility 0.7s ease;
+    }
+
+    .page-loader.is-leaving {
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+    }
+
+    .loader-mark {
+      position: relative;
+      width: 160px;
+      height: 160px;
+      flex-shrink: 0;
+    }
+
+    .loader-glow {
+      position: absolute;
+      left: 10px;
+      top: 10px;
+      width: 140px;
+      height: 140px;
+      border-radius: 70px;
+      background: rgba(232, 155, 40, 0.08);
+      box-shadow: 0 0 48px 24px rgba(232, 155, 40, 0.16);
+      animation: loader-breathe 2.4s ease-in-out infinite;
+    }
+
+    .loader-track,
+    .loader-arc {
+      position: absolute;
+      left: 28px;
+      top: 28px;
+    }
+
+    .loader-arc {
+      animation: loader-spin 1.6s linear infinite;
+    }
+
+    .loader-arc circle {
+      animation: loader-draw 2.2s ease-in-out infinite;
+    }
+
+    .loader-orb {
+      position: absolute;
+      left: 69px;
+      top: 69px;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: var(--amber);
+      animation: loader-pulse 2.4s ease-in-out infinite;
+    }
+
+    .loader-wordmark,
+    .loader-caption {
+      margin: 0;
+      text-align: center;
+    }
+
+    .loader-wordmark {
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-weight: 700;
+      font-size: 42px;
+      line-height: 46px;
+      letter-spacing: -0.02em;
+      color: var(--text);
+      animation: loader-fade-up 0.8s ease both;
+    }
+
+    .loader-caption {
+      font-size: 13px;
+      line-height: 18px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted-light);
+      animation: loader-fade-up 0.8s ease 0.12s both;
+    }
+
+    .loader-bar {
+      width: 168px;
+      height: 2px;
+      border-radius: 1px;
+      background: var(--brand-soft);
+      overflow: hidden;
+    }
+
+    .loader-bar-fill {
+      display: block;
+      width: 12%;
+      height: 2px;
+      background: var(--amber);
+      animation: loader-fill 2.2s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    }
+
+    .page-loader.is-finishing .loader-bar-fill {
+      animation: loader-fill-end 0.4s ease forwards;
+    }
+
+    @keyframes loader-spin {
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    @keyframes loader-draw {
+      0%,
+      100% {
+        stroke-dasharray: 42 302;
+      }
+      50% {
+        stroke-dasharray: 175 302;
+      }
+    }
+
+    @keyframes loader-breathe {
+      0%,
+      100% {
+        opacity: 0.7;
+        transform: scale(0.96);
+      }
+      50% {
+        opacity: 1;
+        transform: scale(1.06);
+      }
+    }
+
+    @keyframes loader-pulse {
+      0%,
+      100% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.18);
+      }
+    }
+
+    @keyframes loader-fade-up {
+      from {
+        opacity: 0;
+        transform: translateY(8px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes loader-fill {
+      from {
+        width: 12%;
+      }
+      to {
+        width: 82%;
+      }
+    }
+
+    @keyframes loader-fill-end {
+      to {
+        width: 100%;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .loader-glow,
+      .loader-arc,
+      .loader-arc circle,
+      .loader-orb,
+      .loader-wordmark,
+      .loader-caption,
+      .loader-bar-fill {
+        animation: none;
+      }
+
+      .loader-bar-fill {
+        width: 100%;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .page-loader {
+        gap: 32px;
+      }
+
+      .loader-wordmark {
+        font-size: 36px;
+        line-height: 40px;
+      }
     }
 
     a {
@@ -121,6 +327,37 @@
       color: var(--text);
     }
 
+    .nav-links a.button:hover {
+      color: #fdfcfc;
+    }
+
+    .nav-toggle {
+      display: none;
+      width: 44px;
+      height: 44px;
+      padding: 0;
+      border: 0;
+      background: transparent;
+      cursor: pointer;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .nav-toggle-icon,
+    .nav-toggle-close {
+      display: block;
+    }
+
+    .nav.is-open .nav-toggle-icon,
+    .nav-toggle-close {
+      display: none;
+    }
+
+    .nav.is-open .nav-toggle-close {
+      display: block;
+    }
+
     .button {
       display: inline-flex;
       align-items: center;
@@ -135,12 +372,13 @@
       font-size: 15px;
       box-shadow: var(--shadow);
       white-space: nowrap;
-      transition: background 180ms ease, transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
+      transition: background 180ms ease, transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease, color 180ms ease;
     }
 
     .button:hover {
       background: var(--primary-hover);
       border-color: var(--primary-hover);
+      color: #fdfcfc;
       transform: translateY(-1px);
       box-shadow: 6px 8px 22px rgba(28, 27, 26, 0.18);
     }
@@ -334,12 +572,35 @@
 
     @media (max-width: 680px) {
       .nav {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr auto;
+        gap: 12px;
+      }
+
+      .nav-toggle {
+        display: inline-flex;
       }
 
       .nav-links {
-        overflow-x: auto;
-        padding-bottom: 4px;
+        display: none;
+        grid-column: 1 / -1;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 4px;
+        padding: 8px 0 6px;
+        overflow: visible;
+      }
+
+      .nav.is-open .nav-links {
+        display: flex;
+      }
+
+      .nav-links a {
+        padding: 12px 0;
+      }
+
+      .nav-links .button {
+        margin-top: 8px;
+        width: 100%;
       }
 
       .terms-hero h1 {
@@ -388,6 +649,28 @@
   </style>
 </head>
 <body>
+  <div class="page-loader" id="page-loader" role="status" aria-live="polite" aria-label="Загрузка страницы">
+    <div class="loader-mark" aria-hidden="true">
+      <div class="loader-glow"></div>
+      <svg class="loader-track" width="104" height="104" viewBox="0 0 104 104">
+        <circle cx="52" cy="52" r="48" fill="none" stroke="#d0c6b8" stroke-width="1.5"></circle>
+      </svg>
+      <svg class="loader-arc" width="104" height="104" viewBox="0 0 104 104">
+        <circle cx="52" cy="52" r="48" fill="none" stroke="#e89b28" stroke-width="2.5" stroke-linecap="round" stroke-dasharray="88 302" transform="rotate(-90 52 52)"></circle>
+      </svg>
+      <div class="loader-orb"></div>
+    </div>
+    <p class="loader-wordmark">Nutrition AI</p>
+    <p class="loader-caption">Собираем страницу</p>
+    <div class="loader-bar" aria-hidden="true">
+      <span class="loader-bar-fill"></span>
+    </div>
+  </div>
+  <noscript>
+    <style>
+      .page-loader { display: none !important; }
+    </style>
+  </noscript>
   <div class="page">
     <header class="topbar">
       <nav class="nav" aria-label="Основная навигация">
@@ -397,7 +680,18 @@
           </span>
           <span>Nutrition AI</span>
         </a>
-        <div class="nav-links">
+        <button class="nav-toggle" type="button" aria-controls="site-nav" aria-expanded="false" aria-label="Открыть меню">
+          <svg class="nav-toggle-icon" width="22" height="16" viewBox="0 0 22 16" aria-hidden="true">
+            <rect y="0" width="22" height="2" rx="1" fill="#1C1917"></rect>
+            <rect y="7" width="22" height="2" rx="1" fill="#1C1917"></rect>
+            <rect y="14" width="22" height="2" rx="1" fill="#1C1917"></rect>
+          </svg>
+          <svg class="nav-toggle-close" width="18" height="18" viewBox="0 0 18 18" aria-hidden="true">
+            <rect x="1" y="8" width="16" height="2" rx="1" fill="#1C1917" transform="rotate(45 9 9)"></rect>
+            <rect x="1" y="8" width="16" height="2" rx="1" fill="#1C1917" transform="rotate(-45 9 9)"></rect>
+          </svg>
+        </button>
+        <div class="nav-links" id="site-nav">
           <a href="index.html#goals">Цели</a>
           <a href="index.html#how">Возможности</a>
           <a href="index.html#research">Исследования</a>
@@ -442,7 +736,7 @@
               <h2>01. Порядок использования Сайта</h2>
               <div class="clause">
                 <span class="clause-num">1.1</span>
-                <p>Настоящее Соглашение регулирует использование сайта — указать адрес сайта, включая размещенный на нем сервис автоматического подбора биологически активных добавок к пище (далее — «Сайт»).</p>
+                <p>Настоящее Соглашение регулирует использование сайта — ссылка на сайт, включая размещенный на нем сервис автоматического подбора биологически активных добавок к пище (далее — «Сайт»).</p>
               </div>
               <div class="clause">
                 <span class="clause-num">1.2</span>
@@ -550,5 +844,70 @@
       </div>
     </footer>
   </div>
+  <script>
+    (function () {
+      var nav = document.querySelector(".nav");
+      var toggle = document.querySelector(".nav-toggle");
+      if (!nav || !toggle) return;
+
+      function setOpen(open) {
+        nav.classList.toggle("is-open", open);
+        toggle.setAttribute("aria-expanded", open ? "true" : "false");
+        toggle.setAttribute("aria-label", open ? "Закрыть меню" : "Открыть меню");
+      }
+
+      toggle.addEventListener("click", function () {
+        setOpen(!nav.classList.contains("is-open"));
+      });
+
+      nav.querySelectorAll(".nav-links a").forEach(function (link) {
+        link.addEventListener("click", function () {
+          setOpen(false);
+        });
+      });
+
+      document.addEventListener("keydown", function (event) {
+        if (event.key === "Escape") setOpen(false);
+      });
+    })();
+
+    (function () {
+      var loader = document.getElementById("page-loader");
+      if (!loader) return;
+
+      var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      var minMs = reduceMotion ? 0 : 1100;
+      var started = Date.now();
+      var hidden = false;
+
+      document.body.classList.add("is-loading");
+
+      function hideLoader() {
+        if (hidden) return;
+        hidden = true;
+        loader.classList.add("is-finishing");
+        window.setTimeout(function () {
+          loader.classList.add("is-leaving");
+          document.body.classList.remove("is-loading");
+        }, reduceMotion ? 0 : 280);
+        window.setTimeout(function () {
+          if (loader.parentNode) loader.parentNode.removeChild(loader);
+        }, reduceMotion ? 0 : 1100);
+      }
+
+      function onReady() {
+        var wait = Math.max(0, minMs - (Date.now() - started));
+        window.setTimeout(hideLoader, wait);
+      }
+
+      if (document.readyState === "complete") {
+        onReady();
+      } else {
+        window.addEventListener("load", onReady);
+      }
+
+      window.setTimeout(hideLoader, 5000);
+    })();
+  </script>
 </body>
 </html>

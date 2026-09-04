@@ -4,7 +4,22 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Nutrition AI</title>
-  <meta name="description" content="Персональный AI-подбор БАДов и нутрицевтиков: ответьте на вопросы и получите понятную схему добавок.">
+  <meta name="description" content="AI-виджет для поиска и подбора нутрицевтиков на сайтах производителей и продавцов по индивидуальному запросу">
+  <link rel="canonical" href="https://widget.go-chrst.ru/">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="ru_RU">
+  <meta property="og:site_name" content="Nutrition AI">
+  <meta property="og:url" content="https://widget.go-chrst.ru/">
+  <meta property="og:title" content="Nutrition AI: сервис для персонального подбора БАДов">
+  <meta property="og:description" content="AI-виджет для поиска и подбора нутрицевтиков на сайтах производителей и продавцов по индивидуальному запросу">
+  <meta property="og:image" content="https://widget.go-chrst.ru/hero-morning-ritual-person-bg.jpg">
+  <meta property="og:image:width" content="640">
+  <meta property="og:image:height" content="426">
+  <meta property="og:image:alt" content="Nutrition AI">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Nutrition AI: сервис для персонального подбора БАДов">
+  <meta name="twitter:description" content="AI-виджет для поиска и подбора нутрицевтиков на сайтах производителей и продавцов по индивидуальному запросу">
+  <meta name="twitter:image" content="https://widget.go-chrst.ru/hero-morning-ritual-person-bg.jpg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <style>
@@ -53,6 +68,210 @@
       font-family: "Inter", "Helvetica Neue", Helvetica, Arial, sans-serif;
       line-height: 1.5;
       letter-spacing: 0;
+    }
+
+    body.is-loading {
+      overflow: hidden;
+    }
+
+    .page-loader {
+      position: fixed;
+      inset: 0;
+      z-index: 1000;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 36px;
+      background: var(--bg);
+      transition: opacity 0.7s ease, visibility 0.7s ease;
+    }
+
+    .page-loader.is-leaving {
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+    }
+
+    .loader-mark {
+      position: relative;
+      width: 160px;
+      height: 160px;
+      flex-shrink: 0;
+    }
+
+    .loader-glow {
+      position: absolute;
+      left: 10px;
+      top: 10px;
+      width: 140px;
+      height: 140px;
+      border-radius: 70px;
+      background: rgba(232, 155, 40, 0.08);
+      box-shadow: 0 0 48px 24px rgba(232, 155, 40, 0.16);
+      animation: loader-breathe 2.4s ease-in-out infinite;
+    }
+
+    .loader-track,
+    .loader-arc {
+      position: absolute;
+      left: 28px;
+      top: 28px;
+    }
+
+    .loader-arc {
+      animation: loader-spin 1.6s linear infinite;
+    }
+
+    .loader-arc circle {
+      animation: loader-draw 2.2s ease-in-out infinite;
+    }
+
+    .loader-orb {
+      position: absolute;
+      left: 69px;
+      top: 69px;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: var(--amber);
+      animation: loader-pulse 2.4s ease-in-out infinite;
+    }
+
+    .loader-wordmark,
+    .loader-caption {
+      margin: 0;
+      text-align: center;
+    }
+
+    .loader-wordmark {
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-weight: 700;
+      font-size: 42px;
+      line-height: 46px;
+      letter-spacing: -0.02em;
+      color: var(--text);
+      animation: loader-fade-up 0.8s ease both;
+    }
+
+    .loader-caption {
+      font-size: 13px;
+      line-height: 18px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted-light);
+      animation: loader-fade-up 0.8s ease 0.12s both;
+    }
+
+    .loader-bar {
+      width: 168px;
+      height: 2px;
+      border-radius: 1px;
+      background: var(--brand-soft);
+      overflow: hidden;
+    }
+
+    .loader-bar-fill {
+      display: block;
+      width: 12%;
+      height: 2px;
+      background: var(--amber);
+      animation: loader-fill 2.2s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    }
+
+    .page-loader.is-finishing .loader-bar-fill {
+      animation: loader-fill-end 0.4s ease forwards;
+    }
+
+    @keyframes loader-spin {
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    @keyframes loader-draw {
+      0%,
+      100% {
+        stroke-dasharray: 42 302;
+      }
+      50% {
+        stroke-dasharray: 175 302;
+      }
+    }
+
+    @keyframes loader-breathe {
+      0%,
+      100% {
+        opacity: 0.7;
+        transform: scale(0.96);
+      }
+      50% {
+        opacity: 1;
+        transform: scale(1.06);
+      }
+    }
+
+    @keyframes loader-pulse {
+      0%,
+      100% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.18);
+      }
+    }
+
+    @keyframes loader-fade-up {
+      from {
+        opacity: 0;
+        transform: translateY(8px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes loader-fill {
+      from {
+        width: 12%;
+      }
+      to {
+        width: 82%;
+      }
+    }
+
+    @keyframes loader-fill-end {
+      to {
+        width: 100%;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .loader-glow,
+      .loader-arc,
+      .loader-arc circle,
+      .loader-orb,
+      .loader-wordmark,
+      .loader-caption,
+      .loader-bar-fill {
+        animation: none;
+      }
+
+      .loader-bar-fill {
+        width: 100%;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .page-loader {
+        gap: 32px;
+      }
+
+      .loader-wordmark {
+        font-size: 36px;
+        line-height: 40px;
+      }
     }
 
     img {
@@ -129,6 +348,37 @@
       color: var(--text);
     }
 
+    .nav-links a.button:hover {
+      color: #fdfcfc;
+    }
+
+    .nav-toggle {
+      display: none;
+      width: 44px;
+      height: 44px;
+      padding: 0;
+      border: 0;
+      background: transparent;
+      cursor: pointer;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .nav-toggle-icon,
+    .nav-toggle-close {
+      display: block;
+    }
+
+    .nav.is-open .nav-toggle-icon,
+    .nav-toggle-close {
+      display: none;
+    }
+
+    .nav.is-open .nav-toggle-close {
+      display: block;
+    }
+
     .button {
       display: inline-flex;
       align-items: center;
@@ -143,13 +393,14 @@
       font-size: 15px;
       cursor: pointer;
       box-shadow: var(--shadow);
-      transition: background 180ms ease, transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
+      transition: background 180ms ease, transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease, color 180ms ease;
       white-space: nowrap;
     }
 
     .button:hover {
       background: var(--primary-hover);
       border-color: var(--primary-hover);
+      color: #fdfcfc;
       transform: translateY(-1px);
       box-shadow: 6px 8px 22px rgba(28, 27, 26, 0.18);
     }
@@ -556,7 +807,7 @@
       width: 24px;
       height: 24px;
       display: block;
-      color: #9a938d;
+      flex-shrink: 0;
     }
 
     .goal-node.energy { left: 485px; top: 8px; }
@@ -579,7 +830,8 @@
       flex-shrink: 0;
     }
 
-    .icon-tile svg {
+    .icon-tile svg,
+    .icon-tile img {
       width: 24px;
       height: 24px;
       display: block;
@@ -700,11 +952,11 @@
       justify-content: center;
     }
 
-    .research-chip svg {
+    .research-chip svg,
+    .research-chip img {
       width: 20px;
       height: 20px;
       display: block;
-      color: #9a938d;
     }
 
     .research-chip strong {
@@ -955,11 +1207,20 @@
       line-height: 1.25;
     }
 
-    .partner-dot {
+    .partner-check {
       width: 34px;
       height: 34px;
       border-radius: 50%;
       background: var(--accent);
+      display: grid;
+      place-items: center;
+      flex-shrink: 0;
+    }
+
+    .partner-check img {
+      width: 20px;
+      height: 20px;
+      display: block;
     }
 
     .partner-node {
@@ -989,25 +1250,21 @@
       margin: 0;
     }
 
-    .basket-icon {
-      position: relative;
+    .partner-mark {
       width: 34px;
-      height: 28px;
+      height: 34px;
       margin-bottom: 14px;
-      border-radius: 9px 9px 12px 12px;
+      border-radius: 50%;
       background: var(--accent);
+      display: grid;
+      place-items: center;
+      flex-shrink: 0;
     }
 
-    .basket-icon::before {
-      content: "";
-      position: absolute;
-      left: 8px;
-      right: 8px;
-      top: -7px;
-      height: 14px;
-      border: 3px solid var(--accent);
-      border-bottom: 0;
-      border-radius: 14px 14px 0 0;
+    .partner-mark img {
+      width: 24px;
+      height: 24px;
+      display: block;
     }
 
     .partner-site {
@@ -1345,12 +1602,35 @@
 
     @media (max-width: 680px) {
       .nav {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr auto;
+        gap: 12px;
+      }
+
+      .nav-toggle {
+        display: inline-flex;
       }
 
       .nav-links {
-        overflow-x: auto;
-        padding-bottom: 4px;
+        display: none;
+        grid-column: 1 / -1;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 4px;
+        padding: 8px 0 6px;
+        overflow: visible;
+      }
+
+      .nav.is-open .nav-links {
+        display: flex;
+      }
+
+      .nav-links a {
+        padding: 12px 0;
+      }
+
+      .nav-links .button {
+        margin-top: 8px;
+        width: 100%;
       }
 
       .wrap {
@@ -1450,6 +1730,28 @@
   </style>
 </head>
 <body>
+  <div class="page-loader" id="page-loader" role="status" aria-live="polite" aria-label="Загрузка страницы">
+    <div class="loader-mark" aria-hidden="true">
+      <div class="loader-glow"></div>
+      <svg class="loader-track" width="104" height="104" viewBox="0 0 104 104">
+        <circle cx="52" cy="52" r="48" fill="none" stroke="#d0c6b8" stroke-width="1.5"></circle>
+      </svg>
+      <svg class="loader-arc" width="104" height="104" viewBox="0 0 104 104">
+        <circle cx="52" cy="52" r="48" fill="none" stroke="#e89b28" stroke-width="2.5" stroke-linecap="round" stroke-dasharray="88 302" transform="rotate(-90 52 52)"></circle>
+      </svg>
+      <div class="loader-orb"></div>
+    </div>
+    <p class="loader-wordmark">Nutrition AI</p>
+    <p class="loader-caption">Собираем страницу</p>
+    <div class="loader-bar" aria-hidden="true">
+      <span class="loader-bar-fill"></span>
+    </div>
+  </div>
+  <noscript>
+    <style>
+      .page-loader { display: none !important; }
+    </style>
+  </noscript>
   <div class="page">
     <header class="topbar">
       <nav class="nav" aria-label="Основная навигация">
@@ -1459,7 +1761,18 @@
           </span>
           <span>Nutrition AI</span>
         </a>
-        <div class="nav-links">
+        <button class="nav-toggle" type="button" aria-controls="site-nav" aria-expanded="false" aria-label="Открыть меню">
+          <svg class="nav-toggle-icon" width="22" height="16" viewBox="0 0 22 16" aria-hidden="true">
+            <rect y="0" width="22" height="2" rx="1" fill="#1C1917"></rect>
+            <rect y="7" width="22" height="2" rx="1" fill="#1C1917"></rect>
+            <rect y="14" width="22" height="2" rx="1" fill="#1C1917"></rect>
+          </svg>
+          <svg class="nav-toggle-close" width="18" height="18" viewBox="0 0 18 18" aria-hidden="true">
+            <rect x="1" y="8" width="16" height="2" rx="1" fill="#1C1917" transform="rotate(45 9 9)"></rect>
+            <rect x="1" y="8" width="16" height="2" rx="1" fill="#1C1917" transform="rotate(-45 9 9)"></rect>
+          </svg>
+        </button>
+        <div class="nav-links" id="site-nav">
           <a href="#goals">Цели</a>
           <a href="#how">Возможности</a>
           <a href="#research">Исследования</a>
@@ -1475,7 +1788,7 @@
         <div class="hero-grid">
           <p class="eyebrow">Персональный AI-подбор БАДов и нутрицевтиков</p>
           <h1 id="hero-title">Подберите добавки<br>под свои цели</h1>
-          <p class="lead">Ответьте на несколько вопросов, и Nutrition AI соберет персональную схему добавок и объяснит, необходимость каждой рекомендации</p>
+          <p class="lead">Ответьте на несколько вопросов, и Nutrition AI соберет персональную схему добавок и объяснит необходимость каждой рекомендации</p>
 
           <div class="hero-widget" id="widget-frame" aria-label="Область для встроенного виджета">
             <!-- Replace this placeholder with the real 800x600 widget iframe or script. -->
@@ -1514,7 +1827,7 @@
             </div>
             <div>
               <h2 id="goals-title">Начните с задачи, которую решит Nutrition AI</h2>
-              <p class="lead">Виджет поможет собрать рекомендации персонализированно под ваш контекст.<br>Добавки работают лучше, когда вы начинаете не с выбора баночки, а того, какую задачу нужно решить</p>
+              <p class="lead">Виджет поможет собрать рекомендации, персонализированные под ваш контекст.<br>Добавки работают лучше, когда вы начинаете не с выбора баночки, а с того, какую задачу нужно решить</p>
             </div>
           </div>
 
@@ -1532,32 +1845,32 @@
             <span class="goal-line line-6" aria-hidden="true"></span>
 
             <article class="goal-node energy">
-              <svg class="goal-icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="#9A938D" d="M13 2 4.8 13.2c-.3.4 0 1 .5 1H11l-1 8 9.7-12.2c.3-.4 0-1-.5-1H13l1-7Z"/></svg>
+              <img class="goal-icon" src="icons/zap.svg" alt="" width="24" height="24">
               <h3>Энергия и фокус</h3>
               <p>Поддержать тонус, ясность и рабочий ритм без дневных провалов</p>
             </article>
             <article class="goal-node rest">
-              <svg class="goal-icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="#9A938D" stroke-width="1.6" stroke-linecap="round" d="M3 18V9.5A2.5 2.5 0 0 1 5.5 7h13A2.5 2.5 0 0 1 21 9.5V18M3 15h18M8 7V4.5A1.5 1.5 0 0 1 9.5 3h5A1.5 1.5 0 0 1 16 4.5V7"/></svg>
+              <img class="goal-icon" src="icons/bed.svg" alt="" width="24" height="24">
               <h3>Сон, стресс, восстановление</h3>
               <p>Помочь телу отдохнуть, снизить перегруз и вернуться в ресурс</p>
             </article>
             <article class="goal-node immune">
-              <svg class="goal-icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="#9A938D" stroke-width="1.6" stroke-linecap="round" d="M12 21s-7-4.2-7-10V6l7-3 7 3v5c0 5.8-7 10-7 10Z"/><circle cx="12" cy="10" r="2.2" fill="none" stroke="#9A938D" stroke-width="1.6"/><path fill="none" stroke="#9A938D" stroke-width="1.6" d="M8.5 16.5c1.1-1.4 2.3-2 3.5-2s2.4.6 3.5 2"/></svg>
+              <img class="goal-icon" src="icons/shield.svg" alt="" width="24" height="24">
               <h3>Иммунная поддержка</h3>
               <p>Собрать базу для сезонной устойчивости и общего самочувствия</p>
             </article>
             <article class="goal-node beauty">
-              <svg class="goal-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="10" r="6.2" fill="none" stroke="#9A938D" stroke-width="1.6"/><path fill="none" stroke="#9A938D" stroke-width="1.6" stroke-linecap="round" d="M12 16.2V21M8 21h8M9.8 7.2l4.4 4.4M14.2 7.2 9.8 11.6"/></svg>
+              <img class="goal-icon" src="icons/mirror.svg" alt="" width="24" height="24">
               <h3>Кожа, волосы, ногти</h3>
               <p>Поддержка и здоровье внешности через нутриенты</p>
             </article>
             <article class="goal-node sport">
-              <svg class="goal-icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="#9A938D" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" d="M4 18c2-1 4.5-2 8-6l5-6 3 2-6 5c-3 3.2-4.2 6-6 8M16 6l3 3"/></svg>
+              <img class="goal-icon" src="icons/shoe.svg" alt="" width="24" height="24">
               <h3>Спорт и активность</h3>
               <p>Поддержать нагрузку, восстановление и стабильную энергию</p>
             </article>
             <article class="goal-node base">
-              <svg class="goal-icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="#9A938D" stroke-width="1.6" stroke-linejoin="round" d="M12 20.5S4.5 15.6 4.5 9.4C4.5 6.6 6.7 4.5 9.4 4.5c1.5 0 2.9.7 3.6 1.8.7-1.1 2.1-1.8 3.6-1.8 2.7 0 4.9 2.1 4.9 4.9 0 6.2-7.5 11.1-7.5 11.1Z"/><path fill="none" stroke="#9A938D" stroke-width="1.4" stroke-linecap="round" d="M7.5 12.2h3.2l1.3 3.2 1.8-6.2 1.2 3h3.5"/></svg>
+              <img class="goal-icon" src="icons/heart-pulse.svg" alt="" width="24" height="24">
               <h3>Базовое здоровье</h3>
               <p>Системность и порядок в ежедневной поддержке без лишних затрат</p>
             </article>
@@ -1574,28 +1887,28 @@
             </div>
             <div>
               <h2 id="how-title">Nutrition AI соберет понятный план под ваш запрос</h2>
-              <p class="lead">Многоступенчатый анализ цели, образа жизни, ограничений и ингредиентов формирует персональную стратегию подбора, исключая возможность ошибки в списке покупок</p>
+              <p class="lead">Многоступенчатый анализ цели, образа жизни, ограничений и ингредиентов формирует персональную стратегию подбора, снижая риск нерелевантных рекомендаций</p>
             </div>
           </div>
 
           <div class="steps">
             <article class="step">
               <span class="icon-tile" aria-hidden="true">
-                <svg viewBox="0 0 24 24"><path fill="#E7E2DA" d="M12 3.2a5.5 5.5 0 1 0 0 11 5.5 5.5 0 0 0 0-11Zm0 1.4a4.1 4.1 0 1 1 0 8.2 4.1 4.1 0 0 1 0-8.2Z"/><path fill="#E7E2DA" d="M4.6 19.2c.8-2.6 3.2-4.4 7.4-4.4s6.6 1.8 7.4 4.4c.1.4-.2.8-.6.8H5.2c-.4 0-.7-.4-.6-.8Z"/><path fill="#E7E2DA" d="m16.4 8.1 1.3 1.3 2.4-2.4 1 1-3.4 3.4-2.3-2.3z"/></svg>
+                <img src="icons/user-check.svg" alt="" width="24" height="24">
               </span>
               <h3>Персональная логика</h3>
               <p>Учитывает цели, режим, ограничения и предпочтения, а не предлагает универсальные схемы</p>
             </article>
             <article class="step">
               <span class="icon-tile" aria-hidden="true">
-                <svg viewBox="0 0 24 24"><path fill="#E7E2DA" d="M9.2 3.2c1.1-.6 2.4-.8 3.7-.4 1.1.3 2 .9 2.7 1.8.2-.2.5-.4.8-.5 1.3-.5 2.7-.3 3.8.5 1.1.8 1.8 2 1.9 3.4 0 .7-.1 1.4-.5 2 .6.5 1.1 1.2 1.4 2 .6 1.4.5 3-.2 4.3-.5.9-1.3 1.7-2.2 2.2v.8c0 1.7-1 3.2-2.6 3.8-1.6.6-3.4.2-4.6-1-.4-.4-.7-.8-.9-1.3-.2.5-.5.9-.9 1.3-1.2 1.2-3 1.6-4.6 1-1.6-.6-2.6-2.1-2.6-3.8v-.8c-.9-.5-1.7-1.3-2.2-2.2-.7-1.3-.8-2.9-.2-4.3.3-.8.8-1.5 1.4-2-.4-.6-.5-1.3-.5-2 .1-1.4.8-2.6 1.9-3.4 1.1-.8 2.5-1 3.8-.5.3.1.6.3.8.5.3-.4.7-.8 1.1-1.1Zm1.6 1.4c-.5 0-1 .2-1.4.5L8.2 6.4v4.3c0 .9.4 1.7 1.1 2.2.8.6 1.8.8 2.7.5.6-.2 1.1-.6 1.5-1.1V5.8c0-.7-.5-1.2-1.2-1.2h-.5Zm4.2 1.4c-.4-.3-.9-.5-1.4-.5h-.4c-.7 0-1.3.5-1.3 1.2v6.5c.4.5.9.9 1.5 1.1.9.3 1.9.1 2.7-.5.7-.5 1.1-1.3 1.1-2.2V6.5l-1.2-1.3Z"/></svg>
+                <img src="icons/brain.svg" alt="" width="24" height="24">
               </span>
               <h3>Осознанный выбор</h3>
               <p>Объясняет, для чего дается каждая рекомендация и какую задачу она решает</p>
             </article>
             <article class="step">
               <span class="icon-tile" aria-hidden="true">
-                <svg viewBox="0 0 24 24"><path fill="#E7E2DA" d="M16.7 3.2c.9 0 1.8.4 2.4 1 .7.7 1 1.5 1 2.4 0 .8-.3 1.6-.8 2.2l-1.7 1.8-3.3-3.3 1.8-1.7c.6-.6 1.3-.9 2.1-.9Zm-3.7 2.3 3.3 3.3-10.7 10.7-4.4 1.3 1.3-4.4 10.5-10.9Z"/></svg>
+                <img src="icons/pencil.svg" alt="" width="24" height="24">
               </span>
               <h3>Удобный первый шаг</h3>
               <p>Дает отправную точку для покупки, обсуждения со специалистом или пересмотра текущего приема</p>
@@ -1621,15 +1934,15 @@
               <img src="research-science-desk.jpg?v=3" alt="Исследовательский стол с планшетом, графиками, нутрицевтиками и лабораторным стеклом" width="600" height="380" decoding="async">
               <div class="research-ui" aria-label="Слои базы знаний Nutrition AI">
                 <div class="research-chip">
-                  <svg viewBox="0 0 20 20" aria-hidden="true"><path fill="#9A938D" d="M10 1.6a8.4 8.4 0 1 0 .2 16.8A8.4 8.4 0 0 0 10 1.6Zm4.7 5.4-6.1 6.1-2.7-2.7 1-1 1.7 1.7 5.1-5.1 1 1Z"/></svg>
+                  <img src="icons/circle-check.svg" alt="" width="20" height="20">
                   <strong>База ингредиентов</strong>
                 </div>
                 <div class="research-chip">
-                  <svg viewBox="0 0 20 20" aria-hidden="true"><path fill="#9A938D" d="M10 1.6a8.4 8.4 0 1 0 .2 16.8A8.4 8.4 0 0 0 10 1.6Zm4.7 5.4-6.1 6.1-2.7-2.7 1-1 1.7 1.7 5.1-5.1 1 1Z"/></svg>
+                  <img src="icons/circle-check.svg" alt="" width="20" height="20">
                   <strong>Данные исследований</strong>
                 </div>
                 <div class="research-chip">
-                  <svg viewBox="0 0 20 20" aria-hidden="true"><path fill="#9A938D" d="M10 1.6a8.4 8.4 0 1 0 .2 16.8A8.4 8.4 0 0 0 10 1.6Zm4.7 5.4-6.1 6.1-2.7-2.7 1-1 1.7 1.7 5.1-5.1 1 1Z"/></svg>
+                  <img src="icons/circle-check.svg" alt="" width="20" height="20">
                   <strong>Проверка совместимости</strong>
                 </div>
               </div>
@@ -1715,7 +2028,9 @@
               </div>
 
               <div class="partner-node catalog">
-                <div class="basket-icon" aria-hidden="true"></div>
+                <div class="partner-mark" aria-hidden="true">
+                  <img src="icons/database-plus.svg" alt="" width="24" height="24">
+                </div>
                 <strong>Каталог партнера</strong>
                 <p>Составы, формы, SKU и ссылки подключаются к логике подбора.</p>
               </div>
@@ -1728,15 +2043,21 @@
                 </div>
                 <strong>Виджет Nutrition AI</strong>
                 <div class="partner-widget-row">
-                  <span class="partner-dot" aria-hidden="true"></span>
+                  <span class="partner-check" aria-hidden="true">
+                    <img src="icons/circle-check-white.svg" alt="" width="20" height="20">
+                  </span>
                   <span>Подбор под цели пользователя</span>
                 </div>
                 <div class="partner-widget-row">
-                  <span class="partner-dot" aria-hidden="true"></span>
+                  <span class="partner-check" aria-hidden="true">
+                    <img src="icons/circle-check-white.svg" alt="" width="20" height="20">
+                  </span>
                   <span>Релевантные продукты из каталога</span>
                 </div>
                 <div class="partner-widget-row">
-                  <span class="partner-dot" aria-hidden="true"></span>
+                  <span class="partner-check" aria-hidden="true">
+                    <img src="icons/circle-check-white.svg" alt="" width="20" height="20">
+                  </span>
                   <span>Переход к покупке на сайте партнера</span>
                 </div>
               </div>
@@ -1762,7 +2083,9 @@
               </div>
 
               <div class="partner-cart">
-                <div class="basket-icon" aria-hidden="true"></div>
+                <div class="partner-mark" aria-hidden="true">
+                  <img src="icons/basket.svg" alt="" width="24" height="24">
+                </div>
                 <strong>Выделенная корзина</strong>
                 <p>Рекомендация ведет к покупке конкретных продуктов.</p>
               </div>
@@ -1784,6 +2107,70 @@
   </div>
   <script>
     document.querySelector(".hero").classList.add("hero-has-photo");
+
+    (function () {
+      var nav = document.querySelector(".nav");
+      var toggle = document.querySelector(".nav-toggle");
+      if (!nav || !toggle) return;
+
+      function setOpen(open) {
+        nav.classList.toggle("is-open", open);
+        toggle.setAttribute("aria-expanded", open ? "true" : "false");
+        toggle.setAttribute("aria-label", open ? "Закрыть меню" : "Открыть меню");
+      }
+
+      toggle.addEventListener("click", function () {
+        setOpen(!nav.classList.contains("is-open"));
+      });
+
+      nav.querySelectorAll(".nav-links a").forEach(function (link) {
+        link.addEventListener("click", function () {
+          setOpen(false);
+        });
+      });
+
+      document.addEventListener("keydown", function (event) {
+        if (event.key === "Escape") setOpen(false);
+      });
+    })();
+
+    (function () {
+      var loader = document.getElementById("page-loader");
+      if (!loader) return;
+
+      var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      var minMs = reduceMotion ? 0 : 1100;
+      var started = Date.now();
+      var hidden = false;
+
+      document.body.classList.add("is-loading");
+
+      function hideLoader() {
+        if (hidden) return;
+        hidden = true;
+        loader.classList.add("is-finishing");
+        window.setTimeout(function () {
+          loader.classList.add("is-leaving");
+          document.body.classList.remove("is-loading");
+        }, reduceMotion ? 0 : 280);
+        window.setTimeout(function () {
+          if (loader.parentNode) loader.parentNode.removeChild(loader);
+        }, reduceMotion ? 0 : 1100);
+      }
+
+      function onReady() {
+        var wait = Math.max(0, minMs - (Date.now() - started));
+        window.setTimeout(hideLoader, wait);
+      }
+
+      if (document.readyState === "complete") {
+        onReady();
+      } else {
+        window.addEventListener("load", onReady);
+      }
+
+      window.setTimeout(hideLoader, 5000);
+    })();
   </script>
 </body>
 </html>
