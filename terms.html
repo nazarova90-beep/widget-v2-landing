@@ -1,0 +1,547 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Пользовательское соглашение — Nutrition AI</title>
+  <meta name="description" content="Пользовательское соглашение сервиса Nutrition AI: порядок использования сайта, работа подбора добавок и ограничение ответственности.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@300;400;500;600;700;800&display=swap");
+
+    :root {
+      --bg: #fdfcfc;
+      --bg-soft: #f5f4f1;
+      --brand-soft: #e7e2da;
+      --text: #1c1917;
+      --muted: #57534e;
+      --line: #d0c6b8;
+      --primary: #1c1917;
+      --primary-hover: #2a2622;
+      --accent: #917661;
+      --accent-text: #fdfcfc;
+      --card-bg: rgba(253, 252, 252, 0.88);
+      --card-shadow: 0 18px 44px rgba(28, 27, 26, 0.07), 0 2px 10px rgba(208, 198, 184, 0.18);
+      --max: 1200px;
+      --radius-sm: 24px;
+      --shadow: 4px 4px 16px rgba(28, 27, 26, 0.16);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      width: 100%;
+    }
+
+    body {
+      margin: 0;
+      width: 100%;
+      max-width: 100%;
+      overflow-x: hidden;
+      background: var(--bg);
+      color: var(--text);
+      font-family: "Inter", "Helvetica Neue", Helvetica, Arial, sans-serif;
+      line-height: 1.5;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    h1,
+    h2,
+    p {
+      margin-top: 0;
+    }
+
+    .page {
+      width: 100%;
+      min-height: 100vh;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      width: 100%;
+      background: rgba(253, 252, 252, 0.9);
+      border-bottom: 1px solid rgba(208, 198, 184, 0.72);
+      backdrop-filter: blur(16px);
+    }
+
+    .nav {
+      width: min(100%, var(--max));
+      margin: 0 auto;
+      padding: 14px 22px;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 18px;
+      align-items: center;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 600;
+      font-size: 15px;
+    }
+
+    .brand-mark {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: var(--accent);
+      color: var(--accent-text);
+      font-weight: 800;
+      font-size: 13px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 18px;
+      align-items: center;
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    .nav-links a:hover {
+      color: var(--text);
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 0 22px;
+      border: 1px solid var(--primary);
+      border-radius: 50px;
+      background: var(--primary);
+      color: #fdfcfc;
+      font-weight: 600;
+      font-size: 15px;
+      box-shadow: var(--shadow);
+      white-space: nowrap;
+      transition: background 180ms ease, transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
+    }
+
+    .button:hover {
+      background: var(--primary-hover);
+      border-color: var(--primary-hover);
+      transform: translateY(-1px);
+      box-shadow: 6px 8px 22px rgba(28, 27, 26, 0.18);
+    }
+
+    .terms-hero {
+      background: var(--bg-soft);
+      border-bottom: 1px solid rgba(208, 198, 184, 0.8);
+    }
+
+    .terms-hero .wrap {
+      width: min(100%, var(--max));
+      margin: 0 auto;
+      padding: 72px 22px 64px;
+    }
+
+    .terms-hero h1 {
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: 56px;
+      line-height: 54px;
+      font-weight: 700;
+      max-width: 900px;
+      margin-bottom: 28px;
+    }
+
+    .terms-hero .lead {
+      font-size: 19px;
+      font-weight: 300;
+      line-height: 28px;
+      color: var(--muted);
+      max-width: 720px;
+      margin-bottom: 0;
+    }
+
+    .terms-body {
+      background: var(--brand-soft);
+    }
+
+    .terms-layout {
+      width: min(100%, var(--max));
+      margin: 0 auto;
+      padding: 76px 22px;
+      display: flex;
+      align-items: flex-start;
+      gap: 42px;
+    }
+
+    .terms-toc {
+      width: 320px;
+      flex-shrink: 0;
+      position: sticky;
+      top: 90px;
+    }
+
+    .toc-item {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 16px 0;
+      border-top: 1px solid var(--line);
+      font-size: 16px;
+      font-weight: 500;
+      line-height: 22px;
+      color: var(--text);
+    }
+
+    .toc-item:last-child {
+      border-bottom: 1px solid var(--line);
+    }
+
+    .toc-item:hover .toc-label {
+      color: var(--accent);
+    }
+
+    .toc-num {
+      width: 28px;
+      flex-shrink: 0;
+      color: var(--accent);
+      font-size: 13px;
+      font-weight: 500;
+      line-height: 18px;
+    }
+
+    .terms-articles {
+      flex: 1;
+      min-width: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .article {
+      background: var(--card-bg);
+      border-radius: var(--radius-sm);
+      box-shadow: var(--card-shadow);
+      padding: 22px 22px 24px;
+      scroll-margin-top: 88px;
+    }
+
+    .article h2 {
+      font-family: "Inter", "Helvetica Neue", Helvetica, Arial, sans-serif;
+      font-size: 21px;
+      font-weight: 600;
+      line-height: 24px;
+      margin-bottom: 16px;
+    }
+
+    .clause {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+    }
+
+    .clause + .clause {
+      margin-top: 16px;
+    }
+
+    .clause-num {
+      width: 28px;
+      flex-shrink: 0;
+      color: var(--accent);
+      font-size: 13px;
+      font-weight: 500;
+      line-height: 24px;
+    }
+
+    .clause p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 15px;
+      font-weight: 300;
+      line-height: 24px;
+    }
+
+    .clause a {
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+
+    .clause a:hover {
+      color: var(--text);
+    }
+
+    footer {
+      background: var(--text);
+      color: #fdfcfc;
+    }
+
+    footer .wrap {
+      width: min(100%, var(--max));
+      margin: 0 auto;
+      padding: 28px 22px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 18px;
+      color: rgba(253, 252, 252, 0.72);
+      font-size: 14px;
+      line-height: 18px;
+    }
+
+    footer .brand-name {
+      font-weight: 700;
+    }
+
+    footer a {
+      color: #fdfcfc;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    @media (max-width: 980px) {
+      .terms-hero h1 {
+        font-size: 44px;
+        line-height: 48px;
+      }
+
+      .terms-hero .wrap {
+        padding: 56px 22px 48px;
+      }
+
+      .terms-layout {
+        padding: 56px 22px;
+        gap: 28px;
+      }
+
+      .terms-toc {
+        width: 240px;
+        top: 82px;
+      }
+    }
+
+    @media (max-width: 680px) {
+      .nav {
+        grid-template-columns: 1fr;
+      }
+
+      .nav-links {
+        overflow-x: auto;
+        padding-bottom: 4px;
+      }
+
+      .terms-hero h1 {
+        font-size: 36px;
+        line-height: 40px;
+        margin-bottom: 16px;
+      }
+
+      .terms-hero .lead {
+        font-size: 16px;
+        line-height: 24px;
+      }
+
+      .terms-hero .wrap {
+        padding: 36px 20px 32px;
+      }
+
+      .terms-layout {
+        flex-direction: column;
+        padding: 32px 20px;
+        gap: 20px;
+      }
+
+      .terms-toc {
+        width: 100%;
+        position: static;
+      }
+
+      .article {
+        border-radius: 20px;
+        padding: 24px 16px;
+      }
+
+      .article h2 {
+        font-size: 18px;
+        line-height: 22px;
+      }
+
+      footer .wrap {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+        padding: 24px 20px 32px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header class="topbar">
+      <nav class="nav" aria-label="Основная навигация">
+        <a class="brand" href="index.html" aria-label="AI-подбор нутрицевтиков">
+          <span class="brand-mark">AI</span>
+          <span>AI-подбор нутрицевтиков</span>
+        </a>
+        <div class="nav-links">
+          <a href="index.html#goals">Цели</a>
+          <a href="index.html#how">Возможности</a>
+          <a href="index.html#research">Исследования</a>
+          <a href="index.html#ai">Что под капотом</a>
+          <a href="index.html#partners">Партнерам</a>
+          <a href="index.html#widget-frame" class="button">Подобрать добавки</a>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <section class="terms-hero" aria-labelledby="terms-title">
+        <div class="wrap">
+          <h1 id="terms-title">Пользовательское соглашение</h1>
+          <p class="lead">Перед началом использования Сайта, пожалуйста, ознакомьтесь с условиями настоящего Пользовательского соглашения. Использование Сайта любым способом означает полное и безоговорочное согласие Пользователя с настоящим Соглашением.</p>
+        </div>
+      </section>
+
+      <section class="terms-body">
+        <div class="terms-layout">
+          <nav class="terms-toc" aria-label="Содержание соглашения">
+            <a class="toc-item" href="#article-01">
+              <span class="toc-num">01</span>
+              <span class="toc-label">Порядок использования Сайта</span>
+            </a>
+            <a class="toc-item" href="#article-02">
+              <span class="toc-num">02</span>
+              <span class="toc-label">Работа сервиса подбора</span>
+            </a>
+            <a class="toc-item" href="#article-03">
+              <span class="toc-num">03</span>
+              <span class="toc-label">Ограничение ответственности</span>
+            </a>
+            <a class="toc-item" href="#article-04">
+              <span class="toc-num">04</span>
+              <span class="toc-label">Прочие условия</span>
+            </a>
+          </nav>
+
+          <div class="terms-articles">
+            <article class="article" id="article-01">
+              <h2>01. Порядок использования Сайта</h2>
+              <div class="clause">
+                <span class="clause-num">1.1</span>
+                <p>Настоящее Соглашение регулирует использование сайта — указать адрес сайта, включая размещенный на нем сервис автоматического подбора биологически активных добавок к пище (далее — «Сайт»).</p>
+              </div>
+              <div class="clause">
+                <span class="clause-num">1.2</span>
+                <p>Владельцем Сайта является ООО «Аглови», УНП 194029204, адрес: 220114, Республика Беларусь, г. Минск, ул. Макаёнка, д. 12Е, пом. 298, e-mail: <a href="mailto:cust@aglovi.ru">cust@aglovi.ru</a> (далее — «Аглови»).</p>
+              </div>
+              <div class="clause">
+                <span class="clause-num">1.3</span>
+                <p>Пользователь обязуется использовать Сайт только по его прямому назначению и законными способами.</p>
+              </div>
+              <div class="clause">
+                <span class="clause-num">1.4</span>
+                <p>Права на материалы, программный код, дизайн и иные элементы Сайта принадлежат Аглови и/или используются Аглови на законных основаниях. Их коммерческое использование без согласия правообладателя не допускается.</p>
+              </div>
+            </article>
+
+            <article class="article" id="article-02">
+              <h2>02. Работа сервиса подбора</h2>
+              <div class="clause">
+                <span class="clause-num">2.1</span>
+                <p>Сайт предоставляет Пользователю информационно-рекомендательный сервис автоматического подбора БАДов на основании ответов на вопросы анкеты.</p>
+              </div>
+              <div class="clause">
+                <span class="clause-num">2.2</span>
+                <p>Для прохождения анкеты Пользователю не требуется указывать ФИО, номер телефона, e-mail, создавать учетную запись или сообщать иные данные, позволяющие Аглови установить его личность.</p>
+              </div>
+              <div class="clause">
+                <span class="clause-num">2.3</span>
+                <p>Ответы анкеты обрабатываются на стороне Пользователя, не передаются Аглови на хранение, не связываются Аглови с конкретным физическим лицом и не передаются партнеру, на сайт которого Пользователь может быть перенаправлен.</p>
+              </div>
+              <div class="clause">
+                <span class="clause-num">2.4</span>
+                <p>По результатам анкеты Сайт автоматически формирует рекомендации и может сформировать набор товаров или корзину с последующим переходом Пользователя на сайт стороннего продавца, маркетплейса или иного партнера.</p>
+              </div>
+              <div class="clause">
+                <span class="clause-num">2.5</span>
+                <p>Аглови не продает товары через Сайт, не принимает оплату, не осуществляет доставку и не является стороной договора купли-продажи между Пользователем и продавцом.</p>
+              </div>
+              <div class="clause">
+                <span class="clause-num">2.6</span>
+                <p>Аглови может получать от партнера вознаграждение за переход Пользователя по партнерской ссылке и/или за совершенную Пользователем покупку.</p>
+              </div>
+            </article>
+
+            <article class="article" id="article-03">
+              <h2>03. Ограничение ответственности</h2>
+              <div class="clause">
+                <span class="clause-num">3.1</span>
+                <p>Информация и рекомендации на Сайте предоставляются исключительно в информационных целях.</p>
+              </div>
+              <div class="clause">
+                <span class="clause-num">3.2</span>
+                <p>Аглови не осуществляет медицинскую деятельность и не оказывает медицинские услуги. Результат автоматического подбора не является медицинской консультацией, диагнозом, назначением лечения или заменой консультации врача.</p>
+              </div>
+              <div class="clause">
+                <span class="clause-num">3.3</span>
+                <p>Биологически активные добавки к пище не являются лекарственными средствами.</p>
+              </div>
+              <div class="clause">
+                <span class="clause-num">3.4</span>
+                <p>Результат подбора формируется автоматически исключительно на основании ответов Пользователя и не может учитывать все индивидуальные особенности состояния здоровья, противопоказания и взаимодействие с лекарственными средствами. Перед применением БАДов Пользователю следует ознакомиться с информацией производителя и при наличии противопоказаний, заболеваний, беременности, грудного вскармливания, аллергий или приема лекарственных средств проконсультироваться с врачом.</p>
+              </div>
+              <div class="clause">
+                <span class="clause-num">3.5</span>
+                <p>Пользователь самостоятельно принимает решение об использовании полученной информации и приобретении товаров.</p>
+              </div>
+              <div class="clause">
+                <span class="clause-num">3.6</span>
+                <p>Цена, наличие, состав, характеристики, оплата, доставка, возврат, качество и иные условия продажи товаров определяются соответствующим продавцом или партнером. Требования, связанные с покупкой товара, Пользователь предъявляет соответствующему продавцу в порядке, предусмотренном применимым законодательством.</p>
+              </div>
+              <div class="clause">
+                <span class="clause-num">3.7</span>
+                <p>Сайт предоставляется «как есть». Аглови не гарантирует бесперебойную работу Сайта или соответствие результатов подбора индивидуальным ожиданиям Пользователя.</p>
+              </div>
+            </article>
+
+            <article class="article" id="article-04">
+              <h2>04. Прочие условия</h2>
+              <div class="clause">
+                <span class="clause-num">4.1</span>
+                <p>Аглови вправе изменять настоящее Соглашение без специального уведомления. Новая редакция вступает в силу с момента ее размещения на Сайте, если в ней не указано иное.</p>
+              </div>
+              <div class="clause">
+                <span class="clause-num">4.2</span>
+                <p>Настоящее Соглашение применяется с учетом обязательных требований законодательства Российской Федерации, применимых к использованию Сайта Пользователями на территории Российской Федерации.</p>
+              </div>
+              <div class="clause">
+                <span class="clause-num">4.3</span>
+                <p>Если одно или несколько положений Соглашения будут признаны недействительными, это не влияет на действительность остальных положений.</p>
+              </div>
+              <div class="clause">
+                <span class="clause-num">4.4</span>
+                <p>Все вопросы, предложения и претензии, связанные с использованием Сайта, можно направлять по адресу: <a href="mailto:cust@aglovi.ru">cust@aglovi.ru</a>.</p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="wrap">
+        <span class="brand-name">Nutrition AI</span>
+        <span>Информационный сервис. Не является медицинской рекомендацией.</span>
+        <a href="terms.html">Пользовательское соглашение</a>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>
