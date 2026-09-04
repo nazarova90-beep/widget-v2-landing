@@ -5,6 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>AI-подбор нутрицевтиков</title>
   <meta name="description" content="Маркетинговая страница для AI-виджета по персональному подбору нутрицевтиков и БАДов.">
+  <link rel="preload" as="image" href="hero-morning-ritual-person-bg.jpg" fetchpriority="high">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <style>
     @import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@300;400;500;600;700;800&display=swap");
 
@@ -179,26 +182,26 @@
       overflow: hidden;
     }
 
-    .hero::before {
-      content: "";
+    .hero-photo {
       position: absolute;
       inset: 0;
+      z-index: 0;
       width: 100%;
       height: 100%;
-      background-image: url("hero-morning-ritual-person-bg.jpg");
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-      opacity: 1;
+      max-width: none;
+      object-fit: cover;
+      object-position: center;
     }
 
     .hero::after {
       content: "";
       position: absolute;
       inset: 0;
+      z-index: 0;
       width: 100%;
       height: 100%;
       background: linear-gradient(180deg, rgba(253, 252, 252, 0.28), rgba(245, 244, 241, 0.5));
+      pointer-events: none;
     }
 
     .hero-grid {
@@ -686,7 +689,7 @@
     .research-image {
       position: relative;
       width: 100%;
-      height: 380px;
+      aspect-ratio: 3 / 2;
       min-height: 380px;
       border-radius: var(--radius);
       overflow: hidden;
@@ -695,9 +698,12 @@
     }
 
     .research-image img {
+      position: absolute;
+      inset: 0;
       display: block;
       width: 100%;
       height: 100%;
+      max-width: none;
       object-fit: cover;
     }
 
@@ -1394,12 +1400,16 @@
       }
 
       .research-image {
-        min-height: 280px;
+        aspect-ratio: auto;
+        min-height: 0;
+        height: auto;
         padding: 12px;
       }
 
       .research-image img {
-        height: 260px;
+        position: relative;
+        inset: auto;
+        height: 220px;
         border-radius: 20px;
       }
 
@@ -1486,6 +1496,7 @@
 
     <main id="top">
       <section class="hero" aria-labelledby="hero-title">
+        <img class="hero-photo" src="hero-morning-ritual-person-bg.jpg" alt="" width="1200" height="800" decoding="async" fetchpriority="high">
         <div class="hero-grid">
           <p class="eyebrow">Персональный AI-подбор БАДов и нутрицевтиков</p>
           <h1 id="hero-title">Подберите добавки<br>под свои цели</h1>
@@ -1625,7 +1636,7 @@
               <p class="lead">В основе виджета лежит собственная база знаний, которая позволяет сопоставлять цели пользователя, нутриенты, формы, ограничения и логику применения, и формирует каталог на основе доказательной базы, а не на основании популярности добавок</p>
             </div>
             <div class="research-image">
-              <img src="research-science-desk.jpg" alt="Исследовательский стол с планшетом, графиками, нутрицевтиками и лабораторным стеклом">
+              <img src="research-science-desk.jpg" alt="Исследовательский стол с планшетом, графиками, нутрицевтиками и лабораторным стеклом" width="900" height="600" decoding="async" loading="lazy">
               <div class="research-ui" aria-label="Слои базы знаний Nutrition AI">
                 <div class="research-chip">
                   <span>1</span>
