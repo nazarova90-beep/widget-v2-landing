@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ничего не найдено — Nutrition AI</title>
+  <meta name="description" content="Такой страницы нет. Вернитесь на главную Nutrition AI.">
+  <link rel="canonical" href="https://widget.go-chrst.ru/404.html">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@700&family=Inter:wght@600&display=swap");
+
+    :root {
+      --bg: #fdfcfc;
+      --text: #1c1917;
+      --primary: #44403c;
+      --primary-hover: #292524;
+      --amber: #e89b28;
+      --shadow: 4px 4px 16px rgba(28, 27, 26, 0.16);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      margin: 0;
+      min-height: 100%;
+    }
+
+    body {
+      min-height: 100vh;
+      background: var(--bg);
+      color: var(--text);
+      font-family: "Inter", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    }
+
+    .error-page {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 28px;
+      padding: 48px 22px 64px;
+      text-align: center;
+    }
+
+    .error-number {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
+      min-height: 200px;
+    }
+
+    .error-glow {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: 240px;
+      height: 160px;
+      border-radius: 80px;
+      background: rgba(232, 155, 40, 0.1);
+      box-shadow: 0 0 64px 28px rgba(232, 155, 40, 0.16);
+      transform: translate(-50%, -50%);
+      pointer-events: none;
+    }
+
+    .error-digit {
+      position: relative;
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: 200px;
+      font-weight: 700;
+      line-height: 200px;
+      letter-spacing: -0.06em;
+      color: var(--text);
+    }
+
+    .error-digit.zero {
+      color: var(--amber);
+    }
+
+    h1 {
+      margin: 0;
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: 42px;
+      font-weight: 700;
+      line-height: 46px;
+      letter-spacing: -0.02em;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 0 22px;
+      border: 1px solid var(--primary);
+      border-radius: 50px;
+      background: var(--primary);
+      color: #fdfcfc;
+      font-weight: 600;
+      font-size: 15px;
+      line-height: 20px;
+      text-decoration: none;
+      box-shadow: var(--shadow);
+      transition: background 180ms ease, transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease, color 180ms ease;
+    }
+
+    .button:hover {
+      background: var(--primary-hover);
+      border-color: var(--primary-hover);
+      color: #fdfcfc;
+      transform: translateY(-1px);
+      box-shadow: 6px 8px 22px rgba(28, 27, 26, 0.18);
+    }
+
+    @media (max-width: 720px) {
+      .error-page {
+        gap: 24px;
+      }
+
+      .error-number {
+        min-height: 140px;
+        gap: 2px;
+      }
+
+      .error-glow {
+        width: 180px;
+        height: 100px;
+      }
+
+      .error-digit {
+        font-size: 120px;
+        line-height: 120px;
+      }
+
+      h1 {
+        font-size: 32px;
+        line-height: 36px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .button {
+        transition: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="error-page">
+    <div class="error-number" aria-hidden="true">
+      <div class="error-glow"></div>
+      <span class="error-digit">4</span>
+      <span class="error-digit zero">0</span>
+      <span class="error-digit">4</span>
+    </div>
+    <h1>Ничего не найдено</h1>
+    <a class="button" href="index.html">На главную</a>
+  </main>
+</body>
+</html>
