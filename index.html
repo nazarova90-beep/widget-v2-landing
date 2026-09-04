@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>AI-подбор нутрицевтиков</title>
-  <meta name="description" content="Маркетинговая страница для AI-виджета по персональному подбору нутрицевтиков и БАДов.">
+  <title>Nutrition AI</title>
+  <meta name="description" content="Персональный AI-подбор БАДов и нутрицевтиков: ответьте на вопросы и получите понятную схему добавок.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <style>
@@ -19,8 +19,8 @@
       --muted: #57534e;
       --muted-light: #78716c;
       --line: #d0c6b8;
-      --primary: #1c1917;
-      --primary-hover: #2a2622;
+      --primary: #44403c;
+      --primary-hover: #292524;
       --accent: #917661;
       --accent-text: #fdfcfc;
       --card-bg: rgba(253, 252, 252, 0.88);
@@ -95,28 +95,33 @@
       display: flex;
       align-items: center;
       gap: 10px;
-      font-weight: 600;
-      font-size: 15px;
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-weight: 700;
+      font-size: 28px;
+      line-height: 34px;
     }
 
     .brand-mark {
       width: 32px;
       height: 32px;
       border: 0;
-      border-radius: 50%;
-      display: grid;
-      place-items: center;
-      background: var(--accent);
-      color: var(--accent-text);
-      font-weight: 800;
-      font-size: 13px;
+      border-radius: 8px;
+      overflow: hidden;
+      flex-shrink: 0;
+      display: block;
+    }
+
+    .brand-mark img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
     }
 
     .nav-links {
       display: flex;
-      gap: 18px;
+      gap: 24px;
       align-items: center;
-      font-size: 14px;
+      font-size: 15px;
       color: var(--muted);
     }
 
@@ -265,16 +270,16 @@
     }
 
     .lead {
-      font-size: 19px;
+      font-size: 18px;
       font-weight: 300;
       color: var(--muted);
       max-width: 620px;
       margin-bottom: 28px;
+      line-height: 28px;
     }
 
     .hero .lead {
       max-width: 943px;
-      font-weight: 400;
     }
 
     .hero .lead,
@@ -305,8 +310,8 @@
       border-radius: var(--radius);
       background: transparent;
       box-shadow: none;
-      margin: 22px 0 0;
-      width: 100%;
+      margin: 28px auto 0;
+      width: min(100%, 960px);
     }
 
     .proof-item {
@@ -320,24 +325,25 @@
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      gap: 12px;
+      gap: 8px;
       font-size: 14px;
       font-weight: 300;
+      line-height: 20px;
       color: var(--muted);
     }
 
     .proof-item strong {
       color: var(--text);
-      font-family: "Cormorant Garamond", Georgia, serif;
-      font-size: 21px;
-      font-weight: 700;
-      line-height: 26px;
+      font-family: "Inter", "Helvetica Neue", Helvetica, Arial, sans-serif;
+      font-size: 16px;
+      font-weight: 600;
+      line-height: 24px;
     }
 
     .hero-widget {
-      width: 100%;
+      width: min(100%, 960px);
       height: 800px;
-      margin: 28px 0 0;
+      margin: 0 auto;
       background: #fdfcfc;
       border: 1px solid rgba(208, 198, 184, 0.88);
       border-radius: 32px;
@@ -406,7 +412,7 @@
     }
 
     .section-number {
-      color: var(--text);
+      color: #44403c;
       font-family: "Cormorant Garamond", Georgia, serif;
       font-weight: 700;
       font-size: 50px;
@@ -492,7 +498,7 @@
       font-family: "Cormorant Garamond", Georgia, serif;
       font-size: 40px;
       line-height: 0.98;
-      font-weight: 600;
+      font-weight: 700;
       margin-bottom: 0;
     }
 
@@ -505,24 +511,24 @@
     .goal-line {
       left: 50%;
       top: 50%;
-      width: 300px;
-      height: 1px;
-      background: rgba(28, 25, 23, 0.2);
-      transform-origin: left center;
+      width: 2px;
+      height: 100px;
+      background: linear-gradient(180deg, rgba(208, 198, 184, 0.8), rgba(253, 252, 252, 0));
+      transform-origin: top center;
       z-index: 1;
     }
 
-    .goal-line.line-1 { transform: rotate(-90deg); }
-    .goal-line.line-2 { transform: rotate(-30deg); }
-    .goal-line.line-3 { transform: rotate(30deg); }
-    .goal-line.line-4 { transform: rotate(90deg); }
-    .goal-line.line-5 { transform: rotate(150deg); }
-    .goal-line.line-6 { transform: rotate(210deg); }
+    .goal-line.line-1 { height: 36px; transform: translate(-50%, -100%) rotate(180deg); }
+    .goal-line.line-2 { transform: translate(-50%, 0) rotate(110deg); }
+    .goal-line.line-3 { transform: translate(-50%, 0) rotate(60deg); }
+    .goal-line.line-4 { height: 62px; transform: translate(-50%, 0); }
+    .goal-line.line-5 { transform: translate(-50%, 0) rotate(-60deg); }
+    .goal-line.line-6 { transform: translate(-50%, 0) rotate(-110deg); }
 
     .goal-node {
-      width: 200px;
+      width: 230px;
       min-height: 112px;
-      padding: 23px;
+      padding: 20px 24px 24px;
       border: 0;
       border-radius: 18px;
       background: var(--card-bg);
@@ -532,59 +538,55 @@
     }
 
     .goal-node h3 {
-      font-size: 15px;
-      margin-bottom: 6px;
+      font-size: 16px;
+      line-height: 24px;
+      font-weight: 600;
+      margin: 12px 0 6px;
     }
 
     .goal-node p {
       color: var(--muted);
       font-size: 12px;
-      line-height: 1.35;
+      font-weight: 300;
+      line-height: 16px;
       margin: 0;
     }
 
-    .goal-node::before {
-      content: attr(data-number);
-      display: inline-flex;
-      width: 26px;
-      height: 26px;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 12px;
-      border: 0;
-      border-radius: 50%;
-      background: var(--accent);
-      color: var(--accent-text);
-      font-size: 12px;
-      font-weight: 800;
+    .goal-icon {
+      width: 24px;
+      height: 24px;
+      display: block;
+      color: #9a938d;
     }
 
-    .goal-node.energy { left: 50%; top: 32px; transform: translateX(-50%); }
-    .goal-node.rest { right: 92px; top: 142px; }
-    .goal-node.immune { right: 92px; bottom: 142px; }
-    .goal-node.beauty { left: 50%; bottom: 32px; transform: translateX(-50%); }
-    .goal-node.sport { left: 92px; bottom: 142px; }
-    .goal-node.base { left: 92px; top: 142px; }
+    .goal-node.energy { left: 485px; top: 8px; }
+    .goal-node.rest { left: 904px; top: 110px; }
+    .goal-node.immune { left: 859px; top: 402px; width: 236px; }
+    .goal-node.beauty { left: 485px; top: 496px; }
+    .goal-node.sport { left: 119px; top: 402px; }
+    .goal-node.base { left: 92px; top: 110px; }
 
-    .card .num,
-    .step .num {
+    .icon-tile {
       display: inline-flex;
-      width: 32px;
-      height: 32px;
+      width: 40px;
+      height: 40px;
       align-items: center;
       justify-content: center;
-      border: 0;
-      border-radius: 50%;
-      background: var(--accent);
-      color: var(--accent-text);
-      font-size: 13px;
-      font-weight: 800;
+      border-radius: 8px;
+      background: #44403c;
+      color: #e7e2da;
       margin-bottom: 22px;
+      flex-shrink: 0;
+    }
+
+    .icon-tile svg {
+      width: 24px;
+      height: 24px;
+      display: block;
     }
 
     .card p,
     .step p,
-    .ai-block p,
     .faq p {
       color: var(--muted);
       margin-bottom: 0;
@@ -592,8 +594,8 @@
 
     .steps {
       display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 12px;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 20px;
       border: 0;
       border-radius: var(--radius);
       background: transparent;
@@ -609,6 +611,10 @@
       min-height: 260px;
     }
 
+    .step h3 {
+      margin-top: 0;
+    }
+
     .note {
       margin-top: 22px;
       padding: 16px 18px;
@@ -620,37 +626,9 @@
       border-radius: var(--radius-sm);
     }
 
-    .ai-band {
-      background: var(--brand-soft);
-    }
-
-    .ai-grid {
-      display: grid;
-      grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
-      gap: 38px;
-      align-items: start;
-    }
-
-    .ai-list {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 12px;
-    }
-
-    .ai-block {
-      min-height: 190px;
-      padding: 22px;
-      background: var(--card-bg);
-      border: 0;
-      border-radius: var(--radius);
-      box-shadow: var(--card-shadow);
-      backdrop-filter: blur(10px);
-    }
-
     .research-section {
-      background: var(--text);
-      color: #fdfcfc;
-      border-bottom: 0;
+      background: var(--bg);
+      color: var(--text);
     }
 
     .research-section .wrap {
@@ -660,42 +638,28 @@
 
     .research-panel {
       display: grid;
-      grid-template-columns: minmax(0, 0.92fr) minmax(340px, 1.08fr);
+      grid-template-columns: minmax(0, 1fr) 600px;
       gap: 34px;
       align-items: center;
       padding: 0;
     }
 
     .research-copy {
-      padding: 24px 0;
-    }
-
-    .research-copy .eyebrow {
-      color: rgba(253, 252, 252, 0.68);
+      padding: 0;
     }
 
     .research-copy .section-kicker {
       padding-bottom: 30px;
     }
 
-    .research-copy .section-kicker .eyebrow {
-      color: rgba(253, 252, 252, 0.68);
-    }
-
-    .research-copy h2 {
-      color: #fdfcfc;
-    }
-
     .research-copy .lead {
-      color: rgba(253, 252, 252, 0.74);
       margin-bottom: 0;
     }
 
     .research-image {
       position: relative;
       width: 100%;
-      aspect-ratio: 3 / 2;
-      min-height: 380px;
+      height: 380px;
       border-radius: var(--radius);
       overflow: hidden;
       box-shadow: var(--shadow);
@@ -725,41 +689,31 @@
 
     .research-chip {
       min-height: 92px;
-      padding: 14px;
+      padding: 8px 16px;
       border: 0;
       border-radius: var(--radius-sm);
-      background: var(--card-bg);
-      box-shadow: 0 14px 34px rgba(28, 27, 26, 0.08), 0 2px 8px rgba(208, 198, 184, 0.16);
+      background: rgba(253, 252, 252, 0.92);
+      box-shadow: 0 14px 34px rgba(28, 27, 26, 0.08);
       backdrop-filter: blur(12px);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
     }
 
-    .research-chip span {
-      display: inline-flex;
-      width: 26px;
-      height: 26px;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 10px;
-      border-radius: 50%;
-      background: var(--accent);
-      color: var(--accent-text);
-      font-size: 11px;
-      font-weight: 800;
+    .research-chip svg {
+      width: 20px;
+      height: 20px;
+      display: block;
+      color: #9a938d;
     }
 
     .research-chip strong {
       display: block;
       color: var(--text);
       font-size: 14px;
-      line-height: 1.15;
-      margin-bottom: 6px;
-    }
-
-    .research-chip p {
-      color: var(--muted);
-      font-size: 12px;
-      line-height: 1.35;
-      margin: 0;
+      font-weight: 700;
+      line-height: 16px;
+      margin-top: 10px;
     }
 
     .partner-section {
@@ -806,7 +760,7 @@
     }
 
     .partner-copy .eyebrow {
-      color: rgba(253, 252, 252, 0.68);
+      color: #938b82;
     }
 
     .partner-copy .button {
@@ -1160,6 +1114,7 @@
 
     .faq-section h2 {
       font-weight: 700;
+      color: #44403c;
     }
 
     .goals .section-head h2,
@@ -1169,7 +1124,7 @@
 
     .faq-grid {
       display: grid;
-      grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+      grid-template-columns: 480px minmax(0, 1fr);
       gap: 42px;
       align-items: start;
     }
@@ -1228,10 +1183,14 @@
 
     .faq summary h3 {
       margin-bottom: 0;
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: 24px;
+      font-weight: 700;
+      line-height: 24px;
     }
 
     .faq p {
-      padding: 0 66px 24px 22px;
+      padding: 12px 66px 24px 22px;
     }
 
     .final-cta {
@@ -1257,6 +1216,17 @@
       font-size: 14px;
     }
 
+    footer .footer-left {
+      display: flex;
+      align-items: flex-start;
+      gap: 24px;
+    }
+
+    footer .footer-left strong {
+      font-weight: 700;
+      color: rgba(253, 252, 252, 0.72);
+    }
+
     footer a {
       color: #fdfcfc;
       text-decoration: underline;
@@ -1265,7 +1235,6 @@
 
     @media (max-width: 980px) {
       .hero-grid,
-      .ai-grid,
       .faq-grid,
       .research-panel,
       .partner-cta {
@@ -1326,8 +1295,7 @@
 
       .proof-strip,
       .cards,
-      .steps,
-      .ai-list {
+      .steps {
         grid-template-columns: repeat(2, minmax(0, 1fr));
       }
 
@@ -1407,14 +1375,9 @@
         padding-bottom: 64px;
       }
 
-      .research-copy {
-        padding: 0;
-      }
-
       .research-image {
-        aspect-ratio: auto;
-        min-height: 0;
         height: auto;
+        min-height: 0;
         padding: 12px;
       }
 
@@ -1447,7 +1410,6 @@
       .proof-strip,
       .cards,
       .steps,
-      .ai-list,
       .goals-map {
         grid-template-columns: 1fr;
       }
@@ -1491,15 +1453,17 @@
   <div class="page">
     <header class="topbar">
       <nav class="nav" aria-label="Основная навигация">
-        <a class="brand" href="#top" aria-label="AI-подбор нутрицевтиков">
-          <span class="brand-mark">AI</span>
-          <span>AI-подбор нутрицевтиков</span>
+        <a class="brand" href="#top" aria-label="Nutrition AI">
+          <span class="brand-mark">
+            <img src="nutrition-ai-mark.png" alt="" width="32" height="32">
+          </span>
+          <span>Nutrition AI</span>
         </a>
         <div class="nav-links">
           <a href="#goals">Цели</a>
           <a href="#how">Возможности</a>
           <a href="#research">Исследования</a>
-          <a href="#ai">Что под капотом</a>
+          <a href="#faq">Вопросы</a>
           <a href="#partners">Партнерам</a>
           <a href="#widget-frame" class="button">Подобрать добавки</a>
         </div>
@@ -1531,7 +1495,7 @@
             </div>
             <div class="proof-item">
               <strong>AI сопоставит данные</strong>
-              <span>Виджет анализирует, какие ингредиенты и форматы будут релевантны вашему запросу</span>
+              <span>Виджет анализирует, какие ингредиенты и формы будут релевантны вашему запросу</span>
             </div>
             <div class="proof-item">
               <strong>Получите готовую корзину</strong>
@@ -1545,12 +1509,12 @@
         <div class="wrap">
           <div class="section-head">
             <div class="section-kicker">
-              <div class="section-number">01</div>
+              <div class="section-number">01.</div>
               <p class="eyebrow">Цели подбора</p>
             </div>
             <div>
               <h2 id="goals-title">Начните с задачи, которую решит Nutrition AI</h2>
-              <p class="lead">Выберите цель — виджет поможет собрать рекомендации персонализированно под ваш контекст.<br>Добавки работают лучше, когда вы начинаете не с выбора баночки, а с задачи</p>
+              <p class="lead">Виджет поможет собрать рекомендации персонализированно под ваш контекст.<br>Добавки работают лучше, когда вы начинаете не с выбора баночки, а того, какую задачу нужно решить</p>
             </div>
           </div>
 
@@ -1567,29 +1531,35 @@
             <span class="goal-line line-5" aria-hidden="true"></span>
             <span class="goal-line line-6" aria-hidden="true"></span>
 
-            <article class="goal-node energy" data-number="1">
+            <article class="goal-node energy">
+              <svg class="goal-icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="#9A938D" d="M13 2 4.8 13.2c-.3.4 0 1 .5 1H11l-1 8 9.7-12.2c.3-.4 0-1-.5-1H13l1-7Z"/></svg>
               <h3>Энергия и фокус</h3>
-              <p>Поддержать тонус, ясность и рабочий ритм без дневных провалов.</p>
+              <p>Поддержать тонус, ясность и рабочий ритм без дневных провалов</p>
             </article>
-            <article class="goal-node rest" data-number="2">
-              <h3>Сон, стресс и восстановление</h3>
-              <p>Помочь телу отдыхать, снижать перегруз и возвращаться в ресурс.</p>
+            <article class="goal-node rest">
+              <svg class="goal-icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="#9A938D" stroke-width="1.6" stroke-linecap="round" d="M3 18V9.5A2.5 2.5 0 0 1 5.5 7h13A2.5 2.5 0 0 1 21 9.5V18M3 15h18M8 7V4.5A1.5 1.5 0 0 1 9.5 3h5A1.5 1.5 0 0 1 16 4.5V7"/></svg>
+              <h3>Сон, стресс, восстановление</h3>
+              <p>Помочь телу отдохнуть, снизить перегруз и вернуться в ресурс</p>
             </article>
-            <article class="goal-node immune" data-number="3">
+            <article class="goal-node immune">
+              <svg class="goal-icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="#9A938D" stroke-width="1.6" stroke-linecap="round" d="M12 21s-7-4.2-7-10V6l7-3 7 3v5c0 5.8-7 10-7 10Z"/><circle cx="12" cy="10" r="2.2" fill="none" stroke="#9A938D" stroke-width="1.6"/><path fill="none" stroke="#9A938D" stroke-width="1.6" d="M8.5 16.5c1.1-1.4 2.3-2 3.5-2s2.4.6 3.5 2"/></svg>
               <h3>Иммунная поддержка</h3>
-              <p>Собрать базу для сезонной устойчивости и общего самочувствия.</p>
+              <p>Собрать базу для сезонной устойчивости и общего самочувствия</p>
             </article>
-            <article class="goal-node beauty" data-number="4">
+            <article class="goal-node beauty">
+              <svg class="goal-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="10" r="6.2" fill="none" stroke="#9A938D" stroke-width="1.6"/><path fill="none" stroke="#9A938D" stroke-width="1.6" stroke-linecap="round" d="M12 16.2V21M8 21h8M9.8 7.2l4.4 4.4M14.2 7.2 9.8 11.6"/></svg>
               <h3>Кожа, волосы, ногти</h3>
-              <p>Поддержать внешний результат через нутриенты и регулярность.</p>
+              <p>Поддержка и здоровье внешности через нутриенты</p>
             </article>
-            <article class="goal-node sport" data-number="5">
+            <article class="goal-node sport">
+              <svg class="goal-icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="#9A938D" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" d="M4 18c2-1 4.5-2 8-6l5-6 3 2-6 5c-3 3.2-4.2 6-6 8M16 6l3 3"/></svg>
               <h3>Спорт и активность</h3>
-              <p>Поддержать нагрузку, восстановление и стабильную энергию.</p>
+              <p>Поддержать нагрузку, восстановление и стабильную энергию</p>
             </article>
-            <article class="goal-node base" data-number="6">
+            <article class="goal-node base">
+              <svg class="goal-icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="#9A938D" stroke-width="1.6" stroke-linejoin="round" d="M12 20.5S4.5 15.6 4.5 9.4C4.5 6.6 6.7 4.5 9.4 4.5c1.5 0 2.9.7 3.6 1.8.7-1.1 2.1-1.8 3.6-1.8 2.7 0 4.9 2.1 4.9 4.9 0 6.2-7.5 11.1-7.5 11.1Z"/><path fill="none" stroke="#9A938D" stroke-width="1.4" stroke-linecap="round" d="M7.5 12.2h3.2l1.3 3.2 1.8-6.2 1.2 3h3.5"/></svg>
               <h3>Базовое здоровье</h3>
-              <p>Навести порядок в ежедневной поддержке без лишних банок.</p>
+              <p>Системность и порядок в ежедневной поддержке без лишних затрат</p>
             </article>
           </div>
         </div>
@@ -1599,39 +1569,40 @@
         <div class="wrap">
           <div class="section-head">
             <div class="section-kicker">
-              <div class="section-number">02</div>
+              <div class="section-number">02.</div>
               <p class="eyebrow">Возможности виджета</p>
             </div>
             <div>
-              <h2 id="how-title">Nutrition AI соберет под ваш запрос понятный план</h2>
-              <p class="lead">Многоступенчатый анализ цели, образа жизни, ограничений и ингредиентов формирует персональную стратегию подбора, исключая возможность хаотичный список покупок.</p>
+              <h2 id="how-title">Nutrition AI соберет понятный план под ваш запрос</h2>
+              <p class="lead">Многоступенчатый анализ цели, образа жизни, ограничений и ингредиентов формирует персональную стратегию подбора, исключая возможность ошибки в списке покупок</p>
             </div>
           </div>
 
           <div class="steps">
             <article class="step">
-              <span class="num">1</span>
+              <span class="icon-tile" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path fill="#E7E2DA" d="M12 3.2a5.5 5.5 0 1 0 0 11 5.5 5.5 0 0 0 0-11Zm0 1.4a4.1 4.1 0 1 1 0 8.2 4.1 4.1 0 0 1 0-8.2Z"/><path fill="#E7E2DA" d="M4.6 19.2c.8-2.6 3.2-4.4 7.4-4.4s6.6 1.8 7.4 4.4c.1.4-.2.8-.6.8H5.2c-.4 0-.7-.4-.6-.8Z"/><path fill="#E7E2DA" d="m16.4 8.1 1.3 1.3 2.4-2.4 1 1-3.4 3.4-2.3-2.3z"/></svg>
+              </span>
               <h3>Персональная логика</h3>
-              <p>Учитывает цели, режим, ограничения и предпочтения, а не предлагает общий список.</p>
+              <p>Учитывает цели, режим, ограничения и предпочтения, а не предлагает универсальные схемы</p>
             </article>
             <article class="step">
-              <span class="num">2</span>
-              <h3>Порядок в стеке</h3>
-              <p>Помогает понять, что оставить, что уточнить, а что может дублироваться.</p>
-            </article>
-            <article class="step">
-              <span class="num">3</span>
+              <span class="icon-tile" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path fill="#E7E2DA" d="M9.2 3.2c1.1-.6 2.4-.8 3.7-.4 1.1.3 2 .9 2.7 1.8.2-.2.5-.4.8-.5 1.3-.5 2.7-.3 3.8.5 1.1.8 1.8 2 1.9 3.4 0 .7-.1 1.4-.5 2 .6.5 1.1 1.2 1.4 2 .6 1.4.5 3-.2 4.3-.5.9-1.3 1.7-2.2 2.2v.8c0 1.7-1 3.2-2.6 3.8-1.6.6-3.4.2-4.6-1-.4-.4-.7-.8-.9-1.3-.2.5-.5.9-.9 1.3-1.2 1.2-3 1.6-4.6 1-1.6-.6-2.6-2.1-2.6-3.8v-.8c-.9-.5-1.7-1.3-2.2-2.2-.7-1.3-.8-2.9-.2-4.3.3-.8.8-1.5 1.4-2-.4-.6-.5-1.3-.5-2 .1-1.4.8-2.6 1.9-3.4 1.1-.8 2.5-1 3.8-.5.3.1.6.3.8.5.3-.4.7-.8 1.1-1.1Zm1.6 1.4c-.5 0-1 .2-1.4.5L8.2 6.4v4.3c0 .9.4 1.7 1.1 2.2.8.6 1.8.8 2.7.5.6-.2 1.1-.6 1.5-1.1V5.8c0-.7-.5-1.2-1.2-1.2h-.5Zm4.2 1.4c-.4-.3-.9-.5-1.4-.5h-.4c-.7 0-1.3.5-1.3 1.2v6.5c.4.5.9.9 1.5 1.1.9.3 1.9.1 2.7-.5.7-.5 1.1-1.3 1.1-2.2V6.5l-1.2-1.3Z"/></svg>
+              </span>
               <h3>Осознанный выбор</h3>
-              <p>Объясняет, зачем каждая рекомендация и какую задачу она закрывает.</p>
+              <p>Объясняет, для чего дается каждая рекомендация и какую задачу она решает</p>
             </article>
             <article class="step">
-              <span class="num">4</span>
+              <span class="icon-tile" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path fill="#E7E2DA" d="M16.7 3.2c.9 0 1.8.4 2.4 1 .7.7 1 1.5 1 2.4 0 .8-.3 1.6-.8 2.2l-1.7 1.8-3.3-3.3 1.8-1.7c.6-.6 1.3-.9 2.1-.9Zm-3.7 2.3 3.3 3.3-10.7 10.7-4.4 1.3 1.3-4.4 10.5-10.9Z"/></svg>
+              </span>
               <h3>Удобный первый шаг</h3>
-              <p>Дает отправную точку для покупки, обсуждения со специалистом или пересмотра текущего приема.</p>
+              <p>Дает отправную точку для покупки, обсуждения со специалистом или пересмотра текущего приема</p>
             </article>
           </div>
 
-          <p class="note">Рекомендации Nutrition AI не заменяют консультацию врача и не являются медицинской рекомендацией.<br>Для получения диагноза, при беременности, хронических состояниях или для назначения лекарственных препаратов обратитесь к врачу</p>
+          <p class="note">Рекомендации Nutrition AI не заменяют консультацию врача и не являются медицинской рекомендацией.<br>Для назначения лекарственных препаратов, для постановки диагноза, при беременности, при хронических состояниях обратитесь к врачу</p>
         </div>
       </section>
 
@@ -1640,63 +1611,28 @@
           <div class="research-panel">
             <div class="research-copy">
               <div class="section-kicker">
-                <div class="section-number">03</div>
+                <div class="section-number">03.</div>
                 <p class="eyebrow">База исследований</p>
               </div>
-              <h2 id="research-title">Научная база, которая не дает AI советовать наугад</h2>
+              <h2 id="research-title">Научная база учит AI рекомендовать нужное, а не популярное</h2>
               <p class="lead">В основе виджета лежит собственная база знаний, которая позволяет сопоставлять цели пользователя, нутриенты, формы, ограничения и логику применения, и формирует каталог на основе доказательной базы, а не на основании популярности добавок</p>
             </div>
             <div class="research-image">
-              <img src="research-science-desk.jpg?v=3" alt="Исследовательский стол с планшетом, графиками, нутрицевтиками и лабораторным стеклом" width="520" height="347" decoding="async">
+              <img src="research-science-desk.jpg?v=3" alt="Исследовательский стол с планшетом, графиками, нутрицевтиками и лабораторным стеклом" width="600" height="380" decoding="async">
               <div class="research-ui" aria-label="Слои базы знаний Nutrition AI">
                 <div class="research-chip">
-                  <span>1</span>
-                  <strong>Профиль ингредиента</strong>
-                  <p>Формы, свойства и сценарии применения.</p>
+                  <svg viewBox="0 0 20 20" aria-hidden="true"><path fill="#9A938D" d="M10 1.6a8.4 8.4 0 1 0 .2 16.8A8.4 8.4 0 0 0 10 1.6Zm4.7 5.4-6.1 6.1-2.7-2.7 1-1 1.7 1.7 5.1-5.1 1 1Z"/></svg>
+                  <strong>База ингредиентов</strong>
                 </div>
                 <div class="research-chip">
-                  <span>2</span>
+                  <svg viewBox="0 0 20 20" aria-hidden="true"><path fill="#9A938D" d="M10 1.6a8.4 8.4 0 1 0 .2 16.8A8.4 8.4 0 0 0 10 1.6Zm4.7 5.4-6.1 6.1-2.7-2.7 1-1 1.7 1.7 5.1-5.1 1 1Z"/></svg>
                   <strong>Данные исследований</strong>
-                  <p>Заметки и источники в единой базе.</p>
                 </div>
                 <div class="research-chip">
-                  <span>3</span>
+                  <svg viewBox="0 0 20 20" aria-hidden="true"><path fill="#9A938D" d="M10 1.6a8.4 8.4 0 1 0 .2 16.8A8.4 8.4 0 0 0 10 1.6Zm4.7 5.4-6.1 6.1-2.7-2.7 1-1 1.7 1.7 5.1-5.1 1 1Z"/></svg>
                   <strong>Проверка совместимости</strong>
-                  <p>Цели, ограничения и текущий стек.</p>
                 </div>
               </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="ai" class="ai-band" aria-labelledby="ai-title">
-        <div class="wrap">
-          <div class="ai-grid">
-            <div>
-              <p class="eyebrow">AI-подкапотка</p>
-              <h2 id="ai-title">AI, который подбирает не “популярное”, а уместное</h2>
-              <p class="lead">В основе виджета — собственная база знаний о нутрицевтиках, активных ингредиентах, формах, сочетаниях, ограничениях и типовых целях. AI проходит логику подбора от вашего контекста к итоговым рекомендациям.</p>
-              <a class="button" href="#widget-frame">Запустить AI-подбор</a>
-            </div>
-
-            <div class="ai-list">
-              <article class="ai-block">
-                <h3>Собственная база знаний</h3>
-                <p>Ингредиенты, свойства, формы, ограничения и сценарии применения собраны в единую систему.</p>
-              </article>
-              <article class="ai-block">
-                <h3>Методология подбора</h3>
-                <p>Сначала цель и контекст человека, потом возможные потребности, затем релевантные ингредиенты и сочетания.</p>
-              </article>
-              <article class="ai-block">
-                <h3>Объяснимые рекомендации</h3>
-                <p>Виджет показывает, почему добавка попала в подборку и какую роль она играет в общем плане.</p>
-              </article>
-              <article class="ai-block">
-                <h3>Меньше влияния маркетинга</h3>
-                <p>Фокус не на громких обещаниях брендов, а на соответствии вашему профилю и заявленной задаче.</p>
-              </article>
             </div>
           </div>
         </div>
@@ -1706,28 +1642,28 @@
         <div class="wrap">
           <div class="faq-grid">
             <div>
-              <h2 id="faq-title">Коротко о доверии, безопасности и роли виджета</h2>
+              <h2 id="faq-title">Коротко о доверии и безопасности</h2>
               <div class="final-cta">
                 <a class="button" href="#widget-frame">Подобрать добавки</a>
               </div>
             </div>
 
             <div class="faq-list">
+              <details class="faq" open>
+                <summary><h3>Почему рекомендациям можно доверять?</h3></summary>
+                <p>Подбор строится на базе знаний по ингредиентам, логике совместимости и вашем профиле</p>
+              </details>
               <details class="faq">
                 <summary><h3>Это медицинская консультация?</h3></summary>
-                <p>Нет. Виджет помогает сориентироваться в нутрицевтиках и добавках, но не ставит диагнозы и не заменяет врача.</p>
+                <p>Нет. Виджет помогает сориентироваться в нутрицевтиках и добавках, но не ставит диагнозы и не заменяет врача</p>
               </details>
               <details class="faq">
-                <summary><h3>Можно ли использовать, если я уже принимаю добавки?</h3></summary>
-                <p>Да. Вы можете указать текущий прием, цели и ограничения, чтобы получить более релевантный подбор.</p>
-              </details>
-              <details class="faq">
-                <summary><h3>Почему рекомендациям можно доверять?</h3></summary>
-                <p>Подбор строится на базе знаний по ингредиентам, логике совместимости и вашем профиле. Любые рекомендации важно сверять с индивидуальными медицинскими особенностями.</p>
+                <summary><h3>Можно ли использовать Nutrition AI, если я уже принимаю добавки?</h3></summary>
+                <p>Да. Вы можете пройти анкету, указать текущие цели и ограничения, чтобы получить ещё один взгляд на ваш набор добавок и скорректировать его при необходимости</p>
               </details>
               <details class="faq">
                 <summary><h3>Нужно ли разбираться в БАДах заранее?</h3></summary>
-                <p>Нет. Виджет проводит через вопросы и объясняет результат понятным языком.</p>
+                <p>Нет. Виджет задает простые вопросы и объясняет результат понятным языком</p>
               </details>
             </div>
           </div>
@@ -1738,6 +1674,7 @@
         <div class="wrap">
           <div class="partner-cta">
             <div class="partner-copy">
+              <p class="eyebrow">Производителям и продавцам</p>
               <h2 id="partners-title">Хотите стать партнером Nutrition AI?</h2>
               <p>Подключите каталог интернет-магазина или бренда БАДов, чтобы Nutrition AI мог рекомендовать ваши продукты в персональных подборах и приводить заинтересованных пользователей на ваш сайт</p>
               <!-- Replace partner-proposal.pdf with the final commercial proposal file when it is ready. -->
@@ -1792,7 +1729,7 @@
                 <strong>Виджет Nutrition AI</strong>
                 <div class="partner-widget-row">
                   <span class="partner-dot" aria-hidden="true"></span>
-                  <span>Подбор по цели пользователя</span>
+                  <span>Подбор под цели пользователя</span>
                 </div>
                 <div class="partner-widget-row">
                   <span class="partner-dot" aria-hidden="true"></span>
@@ -1837,8 +1774,10 @@
 
     <footer>
       <div class="wrap">
-        <span>Nutrition AI</span>
-        <span>Информационный сервис. Не является медицинской рекомендацией.</span>
+        <div class="footer-left">
+          <strong>Nutrition AI</strong>
+          <span>Информационный сервис. Не является медицинской рекомендацией.</span>
+        </div>
         <a href="terms.html">Пользовательское соглашение</a>
       </div>
     </footer>
