@@ -549,9 +549,7 @@
       margin-top: 18px;
       border: 0;
       border-radius: var(--radius);
-      background:
-        radial-gradient(circle at center, rgba(145, 118, 97, 0.16), rgba(145, 118, 97, 0) 34%),
-        linear-gradient(180deg, rgba(253, 252, 252, 0), rgba(245, 244, 241, 0.58));
+      background: transparent;
       box-shadow: none;
       overflow: hidden;
     }
@@ -580,7 +578,7 @@
       border: 0;
       border-radius: 50%;
       background: var(--card-bg);
-      box-shadow: 0 0 90px rgba(232, 155, 40, 0.12), var(--card-shadow);
+      box-shadow: none;
       backdrop-filter: blur(10px);
       display: grid;
       place-items: center;
@@ -588,8 +586,6 @@
       transform: translate(-50%, -50%);
       z-index: 3;
     }
-
-    /* Rays sit above the oval glow, cards sit above the rays. */
 
     /* Keep the oval centered: reveal animation also uses transform. */
     @media (min-width: 981px) {
@@ -617,51 +613,52 @@
     }
 
     .goal-line {
-      left: 50%;
-      top: 50%;
+      left: 0;
+      top: 0;
       width: 2px;
-      height: 155px;
-      background: linear-gradient(180deg, rgba(145, 118, 97, 0.72) 0%, rgba(145, 118, 97, 0.4) 78%, rgba(145, 118, 97, 0) 100%);
-      transform-origin: top center;
-      z-index: 4;
+      height: 100px;
+      background: linear-gradient(180deg, rgba(208, 198, 184, 0.8), rgba(253, 252, 252, 0));
+      transform-origin: 0 0;
+      z-index: 2;
       pointer-events: none;
     }
 
-    /* Start at the oval rim so the rays are not hidden under the center. */
     .goal-line.line-1 {
-      top: calc(50% - 100px);
-      height: 112px;
-      transform: translate(-50%, 0) rotate(180deg);
+      left: 601px;
+      top: 210px;
+      height: 36px;
+      transform: rotate(180deg);
     }
 
     .goal-line.line-2 {
-      left: calc(50% - 166px);
-      top: calc(50% - 75px);
-      transform: translate(-50%, 0) rotate(110deg);
+      left: 766px;
+      top: 251px;
+      transform: rotate(245deg);
     }
 
     .goal-line.line-3 {
-      left: calc(50% - 167px);
-      top: calc(50% + 58px);
-      transform: translate(-50%, 0) rotate(60deg);
+      left: 762px;
+      top: 380px;
+      transform: rotate(300deg);
     }
 
     .goal-line.line-4 {
-      top: calc(50% + 100px);
-      height: 84px;
-      transform: translate(-50%, 0);
+      left: 599px;
+      top: 426px;
+      height: 62px;
+      transform: none;
     }
 
     .goal-line.line-5 {
-      left: calc(50% + 162px);
-      top: calc(50% + 60px);
-      transform: translate(-50%, 0) rotate(-60deg);
+      left: 433px;
+      top: 378px;
+      transform: rotate(60deg);
     }
 
     .goal-line.line-6 {
-      left: calc(50% + 166px);
-      top: calc(50% - 69px);
-      transform: translate(-50%, 0) rotate(-110deg);
+      left: 434px;
+      top: 245px;
+      transform: rotate(110deg);
     }
 
     .goal-node {
@@ -671,7 +668,7 @@
       border: 0;
       border-radius: 18px;
       background: var(--card-bg);
-      box-shadow: var(--card-shadow);
+      box-shadow: none;
       backdrop-filter: blur(10px);
       z-index: 5;
     }
