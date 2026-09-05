@@ -618,18 +618,49 @@
       left: 50%;
       top: 50%;
       width: 2px;
-      height: 100px;
+      height: 110px;
       background: linear-gradient(180deg, rgba(208, 198, 184, 0.8), rgba(253, 252, 252, 0));
       transform-origin: top center;
       z-index: 1;
+      pointer-events: none;
     }
 
-    .goal-line.line-1 { height: 36px; transform: translate(-50%, -100%) rotate(180deg); }
-    .goal-line.line-2 { transform: translate(-50%, 0) rotate(110deg); }
-    .goal-line.line-3 { transform: translate(-50%, 0) rotate(60deg); }
-    .goal-line.line-4 { height: 62px; transform: translate(-50%, 0); }
-    .goal-line.line-5 { transform: translate(-50%, 0) rotate(-60deg); }
-    .goal-line.line-6 { transform: translate(-50%, 0) rotate(-110deg); }
+    /* Start at the oval rim so the rays are not hidden under the center. */
+    .goal-line.line-1 {
+      top: calc(50% - 100px);
+      height: 88px;
+      transform: translate(-50%, 0) rotate(180deg);
+    }
+
+    .goal-line.line-2 {
+      left: calc(50% - 166px);
+      top: calc(50% - 75px);
+      transform: translate(-50%, 0) rotate(110deg);
+    }
+
+    .goal-line.line-3 {
+      left: calc(50% - 167px);
+      top: calc(50% + 58px);
+      transform: translate(-50%, 0) rotate(60deg);
+    }
+
+    .goal-line.line-4 {
+      top: calc(50% + 100px);
+      height: 70px;
+      transform: translate(-50%, 0);
+    }
+
+    .goal-line.line-5 {
+      left: calc(50% + 162px);
+      top: calc(50% + 60px);
+      transform: translate(-50%, 0) rotate(-60deg);
+    }
+
+    .goal-line.line-6 {
+      left: calc(50% + 166px);
+      top: calc(50% - 69px);
+      transform: translate(-50%, 0) rotate(-110deg);
+    }
 
     .goal-node {
       width: 230px;
@@ -1796,7 +1827,7 @@
           <div class="partner-cta">
             <div class="partner-copy reveal">
               <p class="eyebrow">Производителям и продавцам</p>
-              <h2 id="partners-title">Хотите стать партнером Nutrition AI?</h2>
+              <h2 id="partners-title">Хотите стать партнером<br>Nutrition AI?</h2>
               <p>Подключите каталог интернет-магазина или бренда БАДов, чтобы Nutrition AI мог рекомендовать ваши продукты в персональных подборах и приводить заинтересованных пользователей на ваш сайт</p>
               <!-- Replace partner-proposal.pdf with the final commercial proposal file when it is ready. -->
               <a class="button partner" href="partner-proposal.pdf" download>Скачать партнерское предложение</a>
