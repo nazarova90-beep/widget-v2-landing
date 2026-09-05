@@ -12,18 +12,22 @@
   <meta property="og:url" content="https://widget.go-chrst.ru/">
   <meta property="og:title" content="Nutrition AI: сервис для персонального подбора БАДов">
   <meta property="og:description" content="AI-виджет для поиска и подбора нутрицевтиков на сайтах производителей и продавцов по индивидуальному запросу">
-  <meta property="og:image" content="https://widget.go-chrst.ru/hero-morning-ritual-person-bg.png">
-  <meta property="og:image:width" content="640">
-  <meta property="og:image:height" content="426">
+  <meta property="og:image" content="https://widget.go-chrst.ru/hero-morning-ritual-person-bg.jpg">
+  <meta property="og:image:width" content="1536">
+  <meta property="og:image:height" content="1024">
   <meta property="og:image:alt" content="Nutrition AI">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Nutrition AI: сервис для персонального подбора БАДов">
   <meta name="twitter:description" content="AI-виджет для поиска и подбора нутрицевтиков на сайтах производителей и продавцов по индивидуальному запросу">
-  <meta name="twitter:image" content="https://widget.go-chrst.ru/hero-morning-ritual-person-bg.png">
+  <meta name="twitter:image" content="https://widget.go-chrst.ru/hero-morning-ritual-person-bg.jpg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="image" href="hero-morning-ritual-person-bg.webp?v=5" type="image/webp" fetchpriority="high">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Inter:wght@300;400;600;700&display=swap" media="print" onload="this.media='all'">
+  <noscript>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Inter:wght@300;400;600;700&display=swap">
+  </noscript>
   <style>
-    @import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@300;400;500;600;700;800&display=swap");
 
     :root {
       --bg: #fdfcfc;
@@ -289,13 +293,14 @@
       width: 100%;
       height: 100%;
       background-color: var(--bg-soft);
+      background-image: url("hero-morning-ritual-person-bg.jpg?v=5");
+      background-image: image-set(
+        url("hero-morning-ritual-person-bg.webp?v=5") type("image/webp"),
+        url("hero-morning-ritual-person-bg.jpg?v=5") type("image/jpeg")
+      );
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
-    }
-
-    .hero.hero-has-photo::before {
-      background-image: url("hero-morning-ritual-person-bg.png?v=4");
     }
 
     .hero::after {
@@ -375,12 +380,25 @@
 
     .hero .lead {
       max-width: 943px;
+      margin-bottom: 24px;
     }
 
     .hero .lead,
     .hero .microcopy {
       margin-left: auto;
       margin-right: auto;
+    }
+
+    .partnership-badge {
+      width: 298px;
+      max-width: 100%;
+      height: 36px;
+      flex-shrink: 0;
+      border-radius: 999px;
+    }
+
+    .hero .partnership-badge {
+      margin: 0 auto 28px;
     }
 
     .hero-actions {
@@ -803,6 +821,7 @@
       background: var(--bg-soft);
     }
 
+    .research-image picture,
     .research-image img {
       position: absolute;
       inset: 0;
@@ -810,6 +829,9 @@
       width: 100%;
       height: 100%;
       max-width: none;
+    }
+
+    .research-image img {
       object-fit: cover;
     }
 
@@ -1347,6 +1369,7 @@
     footer {
       background: var(--text);
       color: #fdfcfc;
+      border-top: 1px solid rgba(231, 226, 218, 0.1);
     }
 
     footer .wrap {
@@ -1358,17 +1381,6 @@
       gap: 18px;
       color: rgba(253, 252, 252, 0.72);
       font-size: 14px;
-    }
-
-    footer .footer-left {
-      display: flex;
-      align-items: flex-start;
-      gap: 24px;
-    }
-
-    footer .footer-left strong {
-      font-weight: 700;
-      color: rgba(253, 252, 252, 0.72);
     }
 
     footer a {
@@ -1409,6 +1421,13 @@
 
       .research-ui {
         grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      footer .wrap {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 16px;
       }
 
       .goals-map {
@@ -1512,6 +1531,7 @@
         padding: 12px;
       }
 
+      .research-image picture,
       .research-image img {
         position: relative;
         inset: auto;
@@ -1576,6 +1596,11 @@
 
       footer .wrap {
         flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 16px;
+        padding-top: 24px;
+        padding-bottom: 32px;
       }
     }
   </style>
@@ -1623,12 +1648,13 @@
 
     <main id="top">
       <section class="hero" aria-labelledby="hero-title">
-        <div class="hero-grid reveal-stagger">
-          <p class="eyebrow reveal">Персональный AI-подбор БАДов и нутрицевтиков</p>
-          <h1 id="hero-title" class="reveal">Подберите добавки<br>под свои цели</h1>
-          <p class="lead reveal">Ответьте на несколько вопросов, и Nutrition AI соберет персональную схему добавок и объяснит необходимость каждой рекомендации</p>
+        <div class="hero-grid">
+          <p class="eyebrow">Персональный AI-подбор БАДов и нутрицевтиков</p>
+          <h1 id="hero-title">Подберите добавки<br>под свои цели</h1>
+          <p class="lead">Ответьте на несколько вопросов, и Nutrition AI соберет персональную схему добавок и объяснит необходимость каждой рекомендации</p>
+          <img class="partnership-badge" src="icons/ya-market-partnership.svg" width="298" height="36" alt="Nutrition AI — партнер Яндекс Маркета">
 
-          <div class="hero-widget reveal" id="widget-frame" aria-label="Область для встроенного виджета">
+          <div class="hero-widget" id="widget-frame" aria-label="Область для встроенного виджета">
             <!-- Replace this placeholder with the real 800x600 widget iframe or script. -->
             <div class="hero-widget-frame">
               <div class="hero-widget-content">
@@ -1639,16 +1665,16 @@
             </div>
           </div>
 
-          <div class="proof-strip reveal-group reveal-stagger" aria-label="Как работает подбор">
-            <div class="proof-item reveal">
+          <div class="proof-strip" aria-label="Как работает подбор">
+            <div class="proof-item">
               <strong>Расскажите о себе</strong>
               <span>Пройдите небольшой опрос о цели, образе жизни, индивидуальных особенностях</span>
             </div>
-            <div class="proof-item reveal">
+            <div class="proof-item">
               <strong>AI сопоставит данные</strong>
               <span>Виджет анализирует, какие ингредиенты и формы будут релевантны вашему запросу</span>
             </div>
-            <div class="proof-item reveal">
+            <div class="proof-item">
               <strong>Получите готовую корзину</strong>
               <span>Вы видите не просто список добавок, а объяснение: зачем каждая позиция и какую задачу она закрывает</span>
             </div>
@@ -1769,7 +1795,10 @@
               <p class="lead">В основе виджета лежит собственная база знаний, которая позволяет сопоставлять цели пользователя, нутриенты, формы, ограничения и логику применения, и формирует каталог на основе доказательной базы, а не на основании популярности добавок</p>
             </div>
             <div class="research-image reveal">
-              <img src="research-science-desk.png?v=4" alt="Исследовательский стол с планшетом, графиками, нутрицевтиками и лабораторным стеклом" width="600" height="380" decoding="async">
+              <picture>
+                <source srcset="research-science-desk.webp?v=5" type="image/webp">
+                <img src="research-science-desk.jpg?v=5" alt="Исследовательский стол с планшетом, графиками, нутрицевтиками и лабораторным стеклом" width="600" height="380" decoding="async" loading="lazy">
+              </picture>
               <div class="research-ui reveal-group reveal-stagger" aria-label="Слои базы знаний Nutrition AI">
                 <div class="research-chip reveal">
                   <svg width="20" height="20" aria-hidden="true"><use href="#icon-circle-check"></use></svg>
@@ -1813,8 +1842,12 @@
                 <p>Да. Вы можете пройти анкету, указать текущие цели и ограничения, чтобы получить ещё один взгляд на ваш набор добавок и скорректировать его при необходимости</p>
               </details>
               <details class="faq reveal">
-                <summary><h3>Нужно ли разбираться в БАДах заранее?</h3></summary>
+                <summary><h3>Нужно ли самому разбираться в БАДах?</h3></summary>
                 <p>Нет. Виджет задает простые вопросы и объясняет результат понятным языком</p>
+              </details>
+              <details class="faq reveal">
+                <summary><h3>Нужно ли самостоятельно искать рекомендованные добавки в магазинах?</h3></summary>
+                <p>Нет. Nutrition AI формирует корзину из товаров, которые уже представлены у проверенных интернет-магазинов и производителей БАДов: после подбора вы увидите конкретные позиции в корзине и сможете перейти на сайт продавца, чтобы приобрести всё необходимое по рекомендации</p>
               </details>
             </div>
           </div>
@@ -1935,17 +1968,13 @@
 
     <footer>
       <div class="wrap">
-        <div class="footer-left">
-          <strong>Nutrition AI</strong>
-          <span>Информационный сервис. Не является медицинской рекомендацией.</span>
-        </div>
+        <img class="partnership-badge" src="icons/ya-market-partnership.svg" width="298" height="36" alt="Nutrition AI — партнер Яндекс Маркета">
+        <span>Информационный сервис. Не является медицинской рекомендацией.</span>
         <a href="terms.html">Пользовательское соглашение</a>
       </div>
     </footer>
   </div>
   <script>
-    document.querySelector(".hero").classList.add("hero-has-photo");
-
     (function () {
       var nav = document.querySelector(".nav");
       var toggle = document.querySelector(".nav-toggle");
