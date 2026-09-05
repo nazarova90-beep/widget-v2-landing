@@ -1,7 +1,7 @@
 {
   "headers": [
     {
-      "source": "/hero-morning-ritual-person-bg.jpg",
+      "source": "/hero-morning-ritual-person-bg.png",
       "headers": [
         {
           "key": "Cache-Control",
@@ -10,7 +10,7 @@
       ]
     },
     {
-      "source": "/research-science-desk.jpg",
+      "source": "/research-science-desk.png",
       "headers": [
         {
           "key": "Cache-Control",
